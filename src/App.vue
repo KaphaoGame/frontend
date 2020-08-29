@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h5>(temporary logo)</h5>
+    <HelloWorld msg="Welcome to Unireview"/>
   </div>
 </template>
 
@@ -24,5 +25,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+h5 {
+  margin-top: 0;
 }
 </style>
