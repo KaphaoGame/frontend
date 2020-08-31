@@ -1,5 +1,6 @@
 # Application structure
 
+```
 ├─ src
 ├── api
 ├── assets
@@ -18,6 +19,7 @@
 ├── views
 ├── main.js
 ├── App.vue
+```
 
 **API Directory**
 
