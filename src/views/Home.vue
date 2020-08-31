@@ -6,6 +6,7 @@
       Gaming enthusiasts, Game media, Influencer, Interest <br> 
       We welcome
     </p>
+    <p>Developer mode</p>
   </div>
 </template>
 
