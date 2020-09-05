@@ -9,7 +9,7 @@
 │   ├─ ResusableComponentA
 │   |   ├─ index.js
 │   |   ├─ ReusableComponentA.vue
-│  	|	└─ ReusableComponentA.spec.js
+│   |	  └─ ReusableComponentA.spec.js
 |   └─ ResusableComponentB
 |       ├─ index.js
 |       └─ ReusableComponentB.vue
