@@ -4,7 +4,7 @@
     <p>
       Digital planform for the community of gamer <br>
       Gaming enthusiasts, Game media, Influencer, Interest <br> 
-      We welcome by Kendo
+      We welcome by Kendo T^T
     </p>
     <p>Developer mode</p>
   </div>
