@@ -3,7 +3,7 @@ import HttpRequest from './http_request'
 class GameDetailAPI extends HttpRequest {
   constructor () {
     // api api
-    super('https://git.heroku.com/frozen-stream-73034.git')
+    super('https://floating-reef-94055.herokuapp.com/')
   }
 
   async getGameDetailFromAPI () {

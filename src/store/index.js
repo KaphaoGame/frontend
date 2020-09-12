@@ -57,15 +57,15 @@ const getters = {
 const actions = {
   async dataAction(context){
     const data = await gamedetailAPI.getGameDetailFromAPI()
-    context.commit('dataMutation', data)
-    context.commit('dataIDMutation', data.gameDetailModel.id)
-    context.commit('dataSlugMutation', data.gameDetailModel.slug)
-    context.commit('dataGameNameMutation', data.gameDetailModel.gameName)
-    context.commit('dataGameDescriptionMutation', data.gameDetailModel.gameDescription)
-    context.commit('dataGameDescriptionRawMutation', data.gameDetailModel.gameDescription_raw)
-    context.commit('dataGameReleaseDateMutation', data.gameDetailModel.gameReleaseDate)
-    context.commit('dataGameImageURLMutation', data.gameDetailModel.gameImageURL)
-    context.commit('dataMetacriticScoreMutation', data.gameDetailModel.metacriticScore)
+    context.commit('dataMutation', data[0])
+    context.commit('dataIDMutation', data[0].gameDetailModel.id)
+    context.commit('dataSlugMutation', data[0].gameDetailModel.slug)
+    context.commit('dataGameNameMutation', data[0].gameDetailModel.gameName)
+    context.commit('dataGameDescriptionMutation', data[0].gameDetailModel.gameDescription)
+    context.commit('dataGameDescriptionRawMutation', data[0].gameDetailModel.gameDescription_raw)
+    context.commit('dataGameReleaseDateMutation', data[0].gameDetailModel.gameReleaseDate)
+    context.commit('dataGameImageURLMutation', data[0].gameDetailModel.gameImageURL)
+    context.commit('dataMetacriticScoreMutation', data[0].gameDetailModel.metacriticScore)
 
   }
 } 

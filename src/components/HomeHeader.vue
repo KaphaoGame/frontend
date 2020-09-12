@@ -1,6 +1,6 @@
 <template>
   <div class="container" >
-    <img alt="Vue logo" src="../assets/logo.png">
+    <img alt="Vue logo" src="../assets/kaphaogamelogo.png">
     <h5>(temporary logo)</h5>
     <h1>{{ msg }}</h1>
     <p>
