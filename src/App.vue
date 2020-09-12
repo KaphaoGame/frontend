@@ -1,19 +1,13 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <h5>(temporary logo)</h5>
-    <HelloWorld msg="Welcome to Unireview"/>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './views/Home'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
 }
 </script>
 
@@ -25,9 +19,5 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-}
-
-h5 {
-  margin-top: 0;
 }
 </style>

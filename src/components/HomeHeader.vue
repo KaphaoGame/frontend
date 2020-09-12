@@ -1,5 +1,7 @@
 <template>
-  <div class="hello">
+  <div class="container" >
+    <img alt="Vue logo" src="../assets/logo.png">
+    <h5>(temporary logo)</h5>
     <h1>{{ msg }}</h1>
     <p>
       Digital planform for the community of gamer <br>
@@ -17,6 +19,7 @@ export default {
     msg: String
   }
 }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
