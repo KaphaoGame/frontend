@@ -57,6 +57,7 @@ const getters = {
 const actions = {
   async dataAction(context){
     const data = await gamedetailAPI.getGameDetailFromAPI()
+    console.log(data)
     context.commit('dataMutation', data[0])
     context.commit('dataIDMutation', data[0].gameDetailModel.id)
     context.commit('dataSlugMutation', data[0].gameDetailModel.slug)

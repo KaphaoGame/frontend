@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 class HttpRequest {
-  constructor (url = 'http://localhost:8080/gameDetail') {
+  constructor (url = 'http://localhost:8080/') {
     // this.axios = axios
     this.axiosInstance = axios.create({
       baseURL: url,
