@@ -10,8 +10,8 @@
                     alt="image slot"
                     >
             </div>
-            <div class="col-4 d-flex flex-column align-items-stretch bg">
-                <div class="example-review d-flex justify-content-center">
+            <div class="col-4 bg">
+                <div class="example-review text-center">
                     <span>Latest Users' Reviews</span>
                 </div>
                 <div>

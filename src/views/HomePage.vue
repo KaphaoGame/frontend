@@ -92,8 +92,8 @@
 </template>
 
 <script>
-import TopGameCard from '../components/TopGameCard'
-import CarouselCard from '../components/CarouselCard'
+import TopGameCard from '../components/homeComponents/TopGameCard'
+import CarouselCard from '../components/homeComponents/CarouselCard'
 
 export default {
   name: 'HelloWorld',
