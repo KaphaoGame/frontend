@@ -1,8 +1,0 @@
-# pack-refs with: peeled fully-peeled sorted 
-2364f310174403fe75cf986d44a332b275b71637 refs/heads/Boss
-08d6667ed6599c7ede8751699da3cb320c678c8e refs/heads/Kendo
-50dc98859adf1aefd292e3e866a4eb029839739c refs/heads/develop
-65e6aa36300d34a84feda4e77ef2d2ccd410d27f refs/heads/master
-08d6667ed6599c7ede8751699da3cb320c678c8e refs/pull/1/head
-2364f310174403fe75cf986d44a332b275b71637 refs/pull/2/head
-ae898b46ac1747dc35594a96b723a677d39a02ba refs/tags/v0.1
