@@ -11,13 +11,19 @@
           :interval="4000"
           controls
           indicators
-          background="#ababab"
+          background="#495057"
           img-width="1024"
           img-height="480"
           style="text-shadow: 1px 1px 2px #333;"
           @sliding-start="onSlideStart"
           @sliding-end="onSlideEnd"
         >
+          <b-carousel-slide>
+            <template v-slot:img>
+              <CarouselCard />
+            </template>
+          </b-carousel-slide>
+
           <!-- Text slides with image -->
           <b-carousel-slide
             caption="First slide"
@@ -87,11 +93,13 @@
 
 <script>
 import TopGameCard from '../components/TopGameCard'
+import CarouselCard from '../components/CarouselCard'
 
 export default {
   name: 'HelloWorld',
   components: {
     TopGameCard,
+    CarouselCard,
   }
 }
 </script>

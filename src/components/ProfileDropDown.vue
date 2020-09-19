@@ -33,7 +33,7 @@
         <b-button variant="primary" size="sm" @click="onClick">Sign In</b-button>
       </b-dropdown-form>
       <b-dropdown-divider></b-dropdown-divider>
-      <b-dropdown-item-button>New around here? Sign up</b-dropdown-item-button>
+      <b-dropdown-item-button><router-link to="/register">New around here? Sign up</router-link></b-dropdown-item-button>
       <b-dropdown-item-button>Forgot Password?</b-dropdown-item-button>
     </b-dropdown>
     
