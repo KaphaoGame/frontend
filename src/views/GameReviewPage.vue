@@ -23,12 +23,6 @@
         @sliding-start="onSlideStart"
         @sliding-end="onSlideEnd"
       >
-        <b-carousel-slide>
-          <template v-slot:img>
-            <CarouselCard />
-          </template>
-        </b-carousel-slide>
-
         <!-- Text slides with image -->
         <b-carousel-slide
           caption="First slide"
@@ -108,7 +102,9 @@
         <pre class="mt-3 mb-0">{{ text }}</pre>
       </div>
       <div class="d-flex flex-row-reverse">
-        <b-button variant="primary">Primary</b-button>
+        <router-link to="gamedetail">
+          <b-button variant="primary">SUBMIT</b-button>
+        </router-link>
       </div>
     </div>
   </div>

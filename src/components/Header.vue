@@ -9,12 +9,6 @@
             <b-col>
               <b-nav-item href="/" link-classes="font-nav-bar">Home</b-nav-item>
             </b-col>
-            <b-col>
-              <b-nav-item href="#" link-classes="font-nav-bar">Review</b-nav-item>
-            </b-col>
-            <b-col>
-              <b-nav-item href="#" link-classes="font-nav-bar">Game</b-nav-item>
-            </b-col>
           </b-nav>
           <b-nav class="ml-auto">
             <b-col>
