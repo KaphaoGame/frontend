@@ -6,6 +6,7 @@ import GameReviewPage from '../views/GameReviewPage'
 import RegisterPage from '../views/RegisterPage'
 import SearchPage from '../views/SearchPage'
 import FAQPage from '../views/FAQPage'
+import ProfilePage from '../views/ProfilePage'
 
 Vue.use(VueRouter)
 
@@ -39,6 +40,11 @@ const routes = [
         path: '/FAQ',
         name: 'FAQ',
         component: FAQPage
+    },
+    {
+        path: '/profile',
+        name: 'profile',
+        component: ProfilePage
     }
 ]
 
