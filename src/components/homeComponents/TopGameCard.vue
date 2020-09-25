@@ -3,8 +3,10 @@
     <b-row id="background-card">
       <b-col cols="6">
         <div>
-          <span class="font-style">{{ title }}</span>
-          <b-img src="https://uknow.in.th/wp-content/uploads/2020/03/7-7.jpg" width="300" height="540"/>
+          <span class="font-style-title">{{ title }}</span>
+          <router-link :to="{name: 'gamedetail', params: {slug: slug}}" >
+            <b-img :src=gameImageURL width="225vw" height="320vh" />
+          </router-link>
         </div>
       </b-col>
 
@@ -26,17 +28,17 @@
         </b-row>
       </b-col>
 
-      <b-col  class="d-flex flex-column-reverse">
-        <div>
+      <b-col class="d-flex flex-column-reverse">
+        <div class="padding-progress">
           <b-progress :value="100" variant="success" striped :animated="animate" class="mt-4"></b-progress>
-          <b-progress :value="25" variant="success" striped :animated="animate" class="mt-4"></b-progress>
-          <b-progress :value="50" variant="info" striped :animated="animate" class="mt-4"></b-progress>
-          <b-progress :value="75" variant="warning" striped :animated="animate" class="mt-4"></b-progress>
-          <b-progress :value="100" variant="danger" :animated="animate" class="mt-4"></b-progress>
+          <b-progress :value="100" variant="success" :animated="animate" class="mt-4"></b-progress>
+          <b-progress :value="70" variant="success" striped :animated="animate" class="mt-4"></b-progress>
+          <b-progress :value="50" variant="warning" striped :animated="animate" class="mt-4"></b-progress>
+          <b-progress :value="30" variant="danger" striped :animated="animate" class="mt-4"></b-progress>
         </div>
         <b-col align-self="start">
           <div class="mock-score">
-            <span>85</span>
+            <span>{{metacritic}}</span>
           </div>
         </b-col>
       </b-col>
@@ -46,31 +48,32 @@
 
 <script>
 export default {
-  props: [
-    'title'
-  ],
+  props: ["title", "gameImageURL", "metacritic", "slug"],
   data() {
-      return {
-        animate: true
-      }
-    } 
-}
+    return {
+      animate: true,
+    };
+  },
+};
 </script>
 
 <style>
-.font-style {
+.font-style-title {
   font-size: 1.2vw;
   color: #212529;
 }
 #background-card {
-  background: #E9ECEF;
+  background: #e9ecef;
   border-radius: 7px;
 }
 .mock-score {
   font-size: 5vw;
-  color: #E9ECEF;
-  background: #18850C;
+  color: #e9ecef;
+  background: #18850c;
   border-radius: 7px;
+}
+.padding-progress {
+  padding: 20px;
 }
 </style>>
 

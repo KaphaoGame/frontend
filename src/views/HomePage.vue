@@ -7,7 +7,6 @@
       <div>
         <b-carousel
           id="carousel-1"
-          v-model="slide"
           :interval="4000"
           controls
           indicators
@@ -15,8 +14,6 @@
           img-width="1024"
           img-height="480"
           style="text-shadow: 1px 1px 2px #333;"
-          @sliding-start="onSlideStart"
-          @sliding-end="onSlideEnd"
         >
           <b-carousel-slide>
             <template v-slot:img>
@@ -62,31 +59,14 @@
         <b-col>
           <span class="font-style-2">Official Score</span>
         </b-col>
-        <b-col class="d-flex flex-row-reverse ">
-          <span class="font-style-2">User Score</span>
+      </b-row>
+
+      <b-row>
+        <b-col class="col-6" v-for="item in getTopGameCard" :key="item.gameName">
+            <TopGameCard :title=item.gameName :gameImageURL=item.gameImageURL :metacritic=item.metacriticScore :slug=item.slug />
         </b-col>
       </b-row>
 
-      <b-row class="mb-3">
-        <TopGameCard title="Minecraft"/>
-        <TopGameCard title="TombRaider"/>
-      </b-row>
-
-      <b-row class="mb-3">
-        <TopGameCard title="StarCraft II"/>
-        <TopGameCard title="Half-Life 3"/>
-      </b-row>
-
-      <b-row class="mb-3">
-        <TopGameCard title="Marvel's Avengers"/>
-        <TopGameCard title="The Last of us part II"/>
-      </b-row>
-
-      <b-row class="mb-3">
-        <TopGameCard title="Ghost of Tsushima"/>
-        <TopGameCard title="Fall Guys: Ultimate Knockout"/>
-      </b-row>
-      
     </div>
   </div>
 </template>
@@ -95,11 +75,25 @@
 import TopGameCard from '../components/homeComponents/TopGameCard'
 import CarouselCard from '../components/homeComponents/CarouselCard'
 
+import { mapState, mapActions, mapGetters } from 'vuex'
+
 export default {
   name: 'HelloWorld',
   components: {
     TopGameCard,
     CarouselCard,
+  },
+  computed: {
+    ...mapState("topGameCard", ["topGameCardData"]),
+    ...mapGetters({
+      getTopGameCard: "topGameCard/getTopGameCardData"
+    }),
+  },
+  methods: {
+    ...mapActions("topGameCard", ["topGameCardDataAction"]),
+  },
+  created() {
+    this.topGameCardDataAction()
   }
 }
 </script>

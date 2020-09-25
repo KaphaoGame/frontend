@@ -5,7 +5,7 @@ class HttpRequest {
     // this.axios = axios
     this.axiosInstance = axios.create({
       baseURL: url,
-      timeout: 120000
+      timeout: 120000,
     })
 
     this.axiosInstance.interceptors.request.use(function (config) {
