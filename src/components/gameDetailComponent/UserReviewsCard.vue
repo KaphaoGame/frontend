@@ -1,8 +1,8 @@
 <template>
   <div>
-    <b-row >
+    <b-row class="col-12">
       <b-col class="col-4">
-          <div class="mock-score"  align="center">
+          <div id="mock-score"  align="center">
             <b-avatar src="https://placekitten.com/300/300" size="4rem"></b-avatar>
             <span> {{score}}</span>
           </div>
@@ -23,9 +23,8 @@
       </b-col>
 
       <b-col class="review-card col-8">
-            <span class="font-style2">{{username}}</span>
-            <br>
-            <p>{{reviewParagraph}}</p>
+        <p class="font-style2 text-break">{{username}}</p>
+        <p class="text-break">{{reviewParagraph}}</p>
       </b-col>
     </b-row>
   </div>
@@ -47,7 +46,7 @@ export default {
 </script>
 
 <style>
-.mock-score {
+#mock-score {
   font-size: 2vw;
   color: #e9ecef;
   background: #18850c;
@@ -56,16 +55,17 @@ export default {
 
 .review-card {
   background: #bbc5ce;
+  border-radius: 7px;
 }
 
 .specific-score {
   background: #ffffff;  
+  border-radius: 7px;
 }
 
 .specific-score-font {
   font-size: 1vw;
 }
-
 
 .font-style2 {
   font-size: 3.0vw;

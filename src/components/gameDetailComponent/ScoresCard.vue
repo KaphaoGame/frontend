@@ -2,9 +2,9 @@
   <b-container id="score-card">
     <b-row>
       <b-col class="text-align-center">
-        <span>User Score</span>
+        <span id="font-style">User Score</span>
         <div align="center">
-          <div class="mock-score">
+          <div id="mock-score2">
             <span>85</span>
           </div>
         </div>
@@ -47,9 +47,9 @@
       </b-col>
 
       <b-col class="text-align-center">
-        <span>Official Score</span>
+        <span id="font-style">Official Score</span>
         <b-col align="center">
-          <div class="mock-score">
+          <div id="mock-score2">
             <span>85</span>
           </div>
         </b-col>
@@ -68,9 +68,13 @@
           </div>
         </b-col>
         <br /><br />
-        <span>Write your review</span>
+        <span>Write your review </span>
+        <router-link to="/gamereview"> 
+          <img src="../../assets/penIcon.png" class="pen-icon"/>
+        </router-link>
       </b-col>
     </b-row>
+    <br />
   </b-container>
 </template>
 
@@ -88,29 +92,21 @@ export default {
 </script>
 
 <style>
-.font-style {
-  font-size: 10px;
-  color: #e8eaec;
+#font-style {
+  font-size: 2vw;
 }   
-.example-review {
-  font-size: 1.5vw;
-  color: #e8eaec;
-}
-.bg {
-  background: #6c757d;
-  border-radius: 3%;
-}
-.bg-image {
-  border-radius: 10px;
-}
 #score-card {
-  background: #6c757d;
+  background: #b3c0ca;
   border-radius: 10px;
 }
-.mock-score {
-  font-size: 5vw;
+#mock-score2 {
+  font-size: 4vw;
   color: #e9ecef;
   background: #18850c;
   border-radius: 7px;
+}
+.pen-icon {
+  width: 2vw;
+  height: 2vw;
 }
 </style>
