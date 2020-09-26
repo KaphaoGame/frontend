@@ -28,6 +28,7 @@
             to write paragraph. I don't know what to write paragraph. I don't
             know what to write paragraph. I don't know what to write paragraph.
           </p>
+
           <br>
         </div>
 
@@ -116,23 +117,33 @@
 </template>
 
 <script>
-import ScoresCard from '../components/gameDetailComponent/ScoresCard'
-import UserReviewsCard from '../components/gameDetailComponent/UserReviewsCard'
+
+import { mapActions, mapGetters, mapState } from 'vuex';
+import ScoresCard from "../components/gameDetailComponent/ScoresCard";
+import UserReviewCard from "../components/gameDetailComponent/UserReviewsCard"
 
 export default {
+  props: ["slug"],
 
   name: "gamedetail",
-
   components: {
     ScoresCard,
     UserReviewsCard,
   },
-
-  methods: {
-    dataAction() {
-      this.$store.dispatch("dataAction");
-    },
+  computed: {
+    ...mapGetters({
+      getSlugData: "topGameCard/getSlugData",
+      getData: "gameDetail/getData"
+    }),
+    ...mapState("gameDetail", ["data"]),
   },
+  methods: {
+    ...mapActions("gameDetail", ["dataAction"]),
+  },
+  async created() {
+   await this.dataAction(this.getSlugData)
+  }
+  
 };
 </script>
 

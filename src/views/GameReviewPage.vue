@@ -114,6 +114,8 @@
 <script>
 import RatingStar from "../components/GameReviewComponent/RatingForm";
 export default {
+  name: "gamereview",
+
   components: {
     RatingStar,
   },

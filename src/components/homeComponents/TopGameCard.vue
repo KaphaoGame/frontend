@@ -4,8 +4,8 @@
       <b-col cols="6">
         <div>
           <span class="font-style-title">{{ title }}</span>
-          <router-link :to="{name: 'gamedetail', params: {slug: slug}}" >
-            <b-img :src=gameImageURL width="225vw" height="320vh" />
+          <router-link :to="{name: 'gamedetail', params: {slug: slug}}">
+            <b-img :src=gameImageURL width="225vw" height="320vh" @click="clickGame" />
           </router-link>
         </div>
       </b-col>
@@ -47,6 +47,8 @@
 </template>
 
 <script>
+import { mapActions, mapState } from 'vuex';
+
 export default {
   props: ["title", "gameImageURL", "metacritic", "slug"],
   data() {
@@ -54,6 +56,16 @@ export default {
       animate: true,
     };
   },
+  computed: {
+    ...mapState("topGameCard", ["slugData"]),
+  },
+  methods: {
+    ...mapActions("topGameCard", ["topGameCardSlugAction"]),
+    clickGame() {
+      this.topGameCardSlugAction(this.slug)
+    }
+  },
+
 };
 </script>
 
