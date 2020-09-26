@@ -1,41 +1,34 @@
 <template>
-  <b-container>
+  <div>
     <b-row>
-      <b-col>
-        <div align="center">
-          <div id="mock-score">
+      <b-col class="col-4">
+          <div id="mock-score"  align="center">
             <b-avatar src="https://placekitten.com/300/300" size="4rem"></b-avatar>
             <span> {{score}}</span>
           </div>
           <div>
             <div class="specific-score" align="start">
-                <span>Story</span>
+                <span class="specific-score-font">Story</span>
                 <br>
-                <span>Gameplay</span>
+                <span class="specific-score-font">Gameplay</span>
                 <br>
-                <span>Graphics</span>
+                <span class="specific-score-font">Graphics</span>
                 <br>
-                <span>Performance</span>
+                <span class="specific-score-font">Performance</span>
                 <br>
-                <span>Sound</span>
+                <span class="specific-score-font">Sound</span>
                 <br>
             </div>
           </div>
-        </div>
       </b-col>
 
-      <b-col>
-        <div>
-          <div class="review-card">
+      <b-col class="review-card col-8">
             <span class="font-style2">{{username}}</span>
             <br>
-            <span>{{reviewParagraph}}</span>
-
-          </div>
-        </div>
+            <p>{{reviewParagraph}}</p>
       </b-col>
     </b-row>
-  </b-container>
+  </div>
 </template>
 
 <script>
@@ -59,23 +52,23 @@ export default {
   color: #e9ecef;
   background: #18850c;
   border-radius: 7px;
-  width: 150px;
 }
 
 .review-card {
   background: #bbc5ce;
-  width: 400px;
-  height: 200px;
 }
 
 .specific-score {
-  background: #ffffff;
-  width: 150px;
-  height: 120px;
+  background: #ffffff;  
 }
 
+.specific-score-font {
+  font-size: 1vw;
+}
+
+
 .font-style2 {
-    font-size: 3.0vw;
+  font-size: 3.0vw;
 }
 
 </style>

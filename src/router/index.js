@@ -17,7 +17,7 @@ const routes = [
         component: HomePage   
     },
     {
-        path: '/gamedetail/:slug',
+        path: '/gamedetail:slug',
         name: 'gamedetail',
         component: GameDetailPage
     },

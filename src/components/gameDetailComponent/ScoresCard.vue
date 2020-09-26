@@ -106,13 +106,11 @@ export default {
 #score-card {
   background: #6c757d;
   border-radius: 10px;
-  height: 520px;
 }
 .mock-score {
   font-size: 5vw;
   color: #e9ecef;
   background: #18850c;
   border-radius: 7px;
-  width: 100px;
 }
 </style>

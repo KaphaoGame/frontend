@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
   <div class="gameDetail container">
     <h1 class="font-style">Game Name</h1>
     <br />
@@ -12,80 +11,41 @@
       />
       <b-col><ScoresCard title="Game Scores card" /></b-col>
     </b-row>
-    
 
-    <div class="col-8">
+    <b-row>
+      <b-col id="tag-card" class="col-8"
+        >
+          TAG: RTS
+          <h3>Description</h3>
+          <p>
+            I don't know what to write paragraph. I don't know what to write
+            paragraph. I don't know what to write paragraph. I don't know what
+            to write paragraph. I don't know what to write paragraph. I don't
+            know what to write paragraph. I don't know what to write paragraph.
+          </p>
+          <h3>User Reviews</h3>
+          <UserReviewCard username="Kendo" score="90" reviewParagraph="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"/>
+          <UserReviewCard username="Kendo" score="90" reviewParagraph="aaaaaaa"/>
+          <UserReviewCard username="Kendo" score="90" reviewParagraph="aaaaaaa"/>
 
-      <div id="tag-card">TAG: RTS</div>
-      <br />
-
-      <b-row id="description-card">
-        <h3>Description</h3>
-        <p>
-          I don't know what to write paragraph. I don't know what to write
-          paragraph. I don't know what to write paragraph. I don't know what
-          to write paragraph. I don't know what to write paragraph. I don't
-          know what to write paragraph. I don't know what to write
-          paragraph.
-        </p>
-      </b-row>
-
-      <br />
-      <b-row id="user-reviews-card">
-        <h3>User Reviews</h3>
-          <UserReviewsCard username="Kendo" score="9.0" reviewParagraph="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-          aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" />
-        <br>
-          <UserReviewsCard username="Kendos" score="8.8" reviewParagraph="bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-          bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-          bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
-          bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb" />
-        <br>
-          <UserReviewsCard username="KendosOwO" score="9.5" reviewParagraph="cccccccccccccccccccccccccccccccccccccccccccccccccccc
-          cccccccccccccccccccccccccccccccccccccccccccccccccccc
-          cccccccccccccccccccccccccccccccccccccccccccccccccccc
-          cccccccccccccccccccccccccccccccccccccccccccccccccccc" />
-        <br>
-      </b-row>
-    </div>
-    
-    <br> 
-    
-    <div id="recommend-card" class="col-4">Recommend</div>
-      
-    
-    <br>
-
-    <!-- <button @click="dataAction">get Game from API</button> <br>
-    <div>
-      <h1>{{$store.state.data.gameName}}</h1>
-      <img :src= $store.state.data.gameImageURL>
-      <h3>{{$store.state.data.gameReleaseDate}}</h3>
-      <h3>{{$store.state.data.gameDescription_raw}}</h3>
-    </div> -->
-=======
-  <div id="gameDetail">
-    <router-link to="/gamereview">
-      <button>Game Review Page</button>
-    </router-link>
-    <br />
->>>>>>> acc3a4e06fc91e608b43e008f7adb24d35bf08ce
+      </b-col>
+      <b-col class="col-4 recommend-card">
+        recommend
+      </b-col>
+    </b-row>
   </div>
 </template>
 
 <script>
 import ScoresCard from "../components/gameDetailComponent/ScoresCard";
-import UserReviewsCard from "../components/gameDetailComponent/UserReviewsCard";
+import UserReviewCard from "../components/gameDetailComponent/UserReviewsCard"
 
 export default {
   name: "gamedetail",
-<<<<<<< HEAD
 
   components: {
     ScoresCard,
-    UserReviewsCard,
+    UserReviewCard,
   },
 
   methods: {
@@ -93,9 +53,6 @@ export default {
       this.$store.dispatch("dataAction");
     },
   },
-=======
-  methods: {},
->>>>>>> acc3a4e06fc91e608b43e008f7adb24d35bf08ce
 };
 </script>
 
@@ -113,7 +70,6 @@ export default {
   font-size: 2vw;
   color: grey;
   background: #e8eaec;
-  width: 640px;
   border-radius: 10px;
 }
 
@@ -129,7 +85,7 @@ export default {
   border-radius: 10px;
 }
 
-#recommend-card {
+.recommend-card {
   background: #e8eaec;
   width: 100px;
   border-radius: 10px;
