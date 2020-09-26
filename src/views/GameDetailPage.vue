@@ -120,7 +120,7 @@
 
 import { mapActions, mapGetters, mapState } from 'vuex';
 import ScoresCard from "../components/gameDetailComponent/ScoresCard";
-import UserReviewCard from "../components/gameDetailComponent/UserReviewsCard"
+import UserReviewsCard from "../components/gameDetailComponent/UserReviewsCard"
 
 export default {
   props: ["slug"],
