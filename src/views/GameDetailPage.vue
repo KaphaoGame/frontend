@@ -12,10 +12,9 @@
       <b-col><ScoresCard title="Game Scores card" /></b-col>
     </b-row>
 
-    <b-row>
-      <b-col id="tag-card" class="col-8"
-        >
-          TAG: RTS
+    <b-row class="mb-3">
+      <b-col id="tag-card" class="col-8">
+          <p> TAG: RTS </p>
           <h3>Description</h3>
           <p>
             I don't know what to write paragraph. I don't know what to write
@@ -24,7 +23,7 @@
             know what to write paragraph. I don't know what to write paragraph.
           </p>
           <h3>User Reviews</h3>
-          <UserReviewCard username="Kendo" score="90" reviewParagraph="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"/>
+          <UserReviewCard username="Kendo" score="90" reviewParagraph="aaaaaaaaaaaaaaa aaaaaaaaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaa"/>
           <UserReviewCard username="Kendo" score="90" reviewParagraph="aaaaaaa"/>
           <UserReviewCard username="Kendo" score="90" reviewParagraph="aaaaaaa"/>
 
@@ -87,7 +86,6 @@ export default {
 
 .recommend-card {
   background: #e8eaec;
-  width: 100px;
   border-radius: 10px;
 }
 

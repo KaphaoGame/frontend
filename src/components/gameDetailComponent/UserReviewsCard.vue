@@ -1,8 +1,8 @@
 <template>
   <div>
-    <b-row>
+    <b-row >
       <b-col class="col-4">
-          <div id="mock-score"  align="center">
+          <div class="mock-score"  align="center">
             <b-avatar src="https://placekitten.com/300/300" size="4rem"></b-avatar>
             <span> {{score}}</span>
           </div>
@@ -47,7 +47,7 @@ export default {
 </script>
 
 <style>
-#mock-score {
+.mock-score {
   font-size: 2vw;
   color: #e9ecef;
   background: #18850c;
