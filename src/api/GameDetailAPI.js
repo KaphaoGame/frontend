@@ -5,8 +5,8 @@ class GameDetailAPI extends HttpRequest {
     super('https://gamedetail-kaphaogame-94055.herokuapp.com/')
   }
 
-  async getGameDetailFromAPI () {
-    const {data} = await this.get('/?name=marvels-avengers')
+  async getGameDetailFromAPI (slug) {
+    const {data} = await this.get('/?name=' + slug)
     return data
   }
 }

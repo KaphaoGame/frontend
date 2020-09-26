@@ -23,7 +23,7 @@
             know what to write paragraph. I don't know what to write paragraph.
           </p>
           <h3>User Reviews</h3>
-          <UserReviewCard username="Kendo" score="90" reviewParagraph="aaaaaaaaaaaaaaa aaaaaaaaaaaaaaa aaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaa"/>
+          <UserReviewCard username="Kendo" score="90" reviewParagraph="aaaaaaa"/>
           <UserReviewCard username="Kendo" score="90" reviewParagraph="aaaaaaa"/>
           <UserReviewCard username="Kendo" score="90" reviewParagraph="aaaaaaa"/>
 
@@ -32,26 +32,39 @@
         recommend
       </b-col>
     </b-row>
+    <router-link :to="{name: 'gamereview', params: {slug: slug}}" >
+      <button> gamereview </button>
+
+    </router-link>
   </div>
 </template>
 
 <script>
+import { mapActions, mapGetters, mapState } from 'vuex';
 import ScoresCard from "../components/gameDetailComponent/ScoresCard";
 import UserReviewCard from "../components/gameDetailComponent/UserReviewsCard"
 
 export default {
+  props: ["slug"],
   name: "gamedetail",
-
   components: {
     ScoresCard,
     UserReviewCard,
   },
-
-  methods: {
-    dataAction() {
-      this.$store.dispatch("dataAction");
-    },
+  computed: {
+    ...mapGetters({
+      getSlugData: "topGameCard/getSlugData",
+      getData: "gameDetail/getData"
+    }),
+    ...mapState("gameDetail", ["data"]),
   },
+  methods: {
+    ...mapActions("gameDetail", ["dataAction"]),
+  },
+  async created() {
+   await this.dataAction(this.getSlugData)
+  }
+  
 };
 </script>
 
@@ -74,13 +87,11 @@ export default {
 
 #description-card {
   background: #e8eaec;
-  width: 640px;
   border-radius: 10px;
 }
 
 #user-reviews-card {
   background: #e8eaec;
-  width: 640px;
   border-radius: 10px;
 }
 
