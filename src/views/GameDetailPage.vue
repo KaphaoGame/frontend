@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div class="gameDetail container">
     <h1 class="font-style">Game Name</h1>
     <br />
@@ -64,6 +65,13 @@
       <h3>{{$store.state.data.gameReleaseDate}}</h3>
       <h3>{{$store.state.data.gameDescription_raw}}</h3>
     </div> -->
+=======
+  <div id="gameDetail">
+    <router-link to="/gamereview">
+      <button>Game Review Page</button>
+    </router-link>
+    <br />
+>>>>>>> acc3a4e06fc91e608b43e008f7adb24d35bf08ce
   </div>
 </template>
 
@@ -73,6 +81,7 @@ import UserReviewsCard from "../components/gameDetailComponent/UserReviewsCard";
 
 export default {
   name: "gamedetail",
+<<<<<<< HEAD
 
   components: {
     ScoresCard,
@@ -84,6 +93,9 @@ export default {
       this.$store.dispatch("dataAction");
     },
   },
+=======
+  methods: {},
+>>>>>>> acc3a4e06fc91e608b43e008f7adb24d35bf08ce
 };
 </script>
 
