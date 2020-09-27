@@ -11,6 +11,12 @@ const state = {
         gameReleaseDate: null,
         gameImageURL: null,
         metacriticScore: null,
+        platforms: [],
+        genres: [],
+        gameVideoURL: {},
+        gameDevelopers: [],
+        gamePublishers: [],
+        gameTags: [],
     } 
 }
 
@@ -42,27 +48,83 @@ const mutations = {
     dataMetacriticScoreMutation(state, updateID){
         state.data.metacriticScore = updateID
     },
+    dataPlatformsMutation(state, updatePlatforms){
+        state.data.platforms = updatePlatforms
+    },
+    dataGenresMutation(state, updateGenres){
+        state.data.genres = updateGenres
+    },
+    dataGameVideoURLMutation(state, updateGameVideoURL){
+        state.data.gameVideoURL = updateGameVideoURL
+    },
+    dataGameDevelopersMutation(state, updateGameDevelopers){
+        state.data.gameDevelopers = updateGameDevelopers
+    },
+    dataGamePublishersMutation(state, updateGamePublishers){
+        state.data.gamePublishers = updateGamePublishers
+    },
+    dataGameTagsMutation(state, updateGameTags){
+        state.data.gameTags = updateGameTags
+    }
 }
 
 const getters = {
     getData(state){
         return state.data
+    },
+    getDataGameName(state) {
+        return state.data.gameName
+    },
+    getDataGameImageURL(state) {
+        return state.data.gameImageURL
+    },
+    getDataMetacritic(state) {
+        return state.data.metacriticScore
+    },
+    getDataGameDescription(state) {
+        return state.data.gameDescription_raw
+    },
+    getDataPlatforms(state) {
+        var platforms_name = []
+        state.data.platforms.forEach(element => {
+            platforms_name.push(element.platform.name)
+        });
+        return platforms_name
+    },
+    getDataGameDevelopers(state) {
+        var gameDevelopers = []
+        state.data.gameDevelopers.forEach(element => {
+            gameDevelopers.push(element.name)
+        });
+        return gameDevelopers
+    },
+    getDataGenres(state) {
+        var genres = []
+        state.data.genres.forEach(element => {
+            genres.push(element.name)
+        })
+        return genres
     }
 }
 
 const actions = {
-    async dataAction(context){
-        const data = await gamedetailAPI.getGameDetailFromAPI()
-        console.log(data)
-        context.commit('dataMutation', data[0])
-        context.commit('dataIDMutation', data[0].gameDetailModel.id)
-        context.commit('dataSlugMutation', data[0].gameDetailModel.slug)
-        context.commit('dataGameNameMutation', data[0].gameDetailModel.gameName)
-        context.commit('dataGameDescriptionMutation', data[0].gameDetailModel.gameDescription)
-        context.commit('dataGameDescriptionRawMutation', data[0].gameDetailModel.gameDescription_raw)
-        context.commit('dataGameReleaseDateMutation', data[0].gameDetailModel.gameReleaseDate)
-        context.commit('dataGameImageURLMutation', data[0].gameDetailModel.gameImageURL)
-        context.commit('dataMetacriticScoreMutation', data[0].gameDetailModel.metacriticScore)
+    async dataAction( {commit}, slug ){
+        const data = await gamedetailAPI.getGameDetailFromAPI(slug)
+        commit('dataMutation', data[1])
+        commit('dataIDMutation', data[1].gameDetailModel.id)
+        commit('dataSlugMutation', data[1].gameDetailModel.slug)
+        commit('dataGameNameMutation', data[1].gameDetailModel.gameName)
+        commit('dataGameDescriptionMutation', data[1].gameDetailModel.gameDescription)
+        commit('dataGameDescriptionRawMutation', data[1].gameDetailModel.gameDescription_raw)
+        commit('dataGameReleaseDateMutation', data[1].gameDetailModel.gameReleaseDate)
+        commit('dataGameImageURLMutation', data[1].gameDetailModel.gameImageURL)
+        commit('dataMetacriticScoreMutation', data[1].gameDetailModel.metacriticScore)
+        commit('dataPlatformsMutation', data[1].gameDetailModel.platforms)
+        commit('dataGenresMutation', data[1].gameDetailModel.genres)
+        commit('dataGameVideoURLMutation', data[1].gameDetailModel.gameVideoURL)
+        commit('dataGameDevelopersMutation', data[1].gameDetailModel.gameDevelopers)
+        commit('dataGamePublishersMutation', data[1].gameDetailModel.gamePublishers)
+        commit('dataGameTagsMutation', data[1].gameDetailModel.gameTags)
     }
 } 
 

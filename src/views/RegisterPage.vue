@@ -1,9 +1,16 @@
 <template>
   <div>
-    <p>RegisterPage hello</p>
+
+    <br />
     <!-- register field -->
     <div class="container">
       <div class="row col-12">
+
+
+        <div class="form-group col-12" style="text-align: center;">
+          <label for="firstNameInput">Register Page</label>
+        </div>
+
         <div class="form-group col-6">
           <label for="firstNameInput">First Name</label>
           <input class="form-control" v-model="user.firstName" />
@@ -38,6 +45,9 @@
           <label for="displayName">Display Name</label>
           <input class="form-control" v-model="user.displayName" />
         </div>
+
+        <br /><br /><br /><br /><br /><br />
+                
       </div>
         <button class="btn btn-primary col-md-2 offset-5" v-on:click="handleSubmit()">Register</button>
     </div>
@@ -82,6 +92,7 @@ export default {
       
       
       console.log(accountService.getKaphaoGameAccount())
+      accountService.createKaphaoGameAccount(formdata)
      
     },
   },
@@ -92,6 +103,11 @@ export default {
 <style>
 .body {
   background: #495057;
+}
+
+.form-group{
+  font-size: 1.5vw;
+  color: #e8eaec;
 }
 .font-style {
   font-size: 3.5vw;
