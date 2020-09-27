@@ -14,7 +14,7 @@ const routes = [
     {
         path: '/',
         name: 'home',
-        component: HomePage   
+        component: HomePage
     },
     {
         path: '/gamedetail/:slug',
@@ -22,7 +22,7 @@ const routes = [
         component: GameDetailPage
     },
     {
-        path: '/gamereview',
+        path: '/gamereview/:slug',
         name: 'gamereview',
         component: GameReviewPage
     },
@@ -51,7 +51,11 @@ const routes = [
 const router = new VueRouter({
     mode: 'history',
     base: process.env.BASE_URL,
-    routes
+    routes,
+
+    scrollBehavior() {
+        return { x: 0, y: 0 };
+    }
 })
 
-export default router
+export default router;

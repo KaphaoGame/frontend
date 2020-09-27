@@ -92,6 +92,7 @@ export default {
       
       
       console.log(accountService.getKaphaoGameAccount())
+      accountService.createKaphaoGameAccount(formdata)
      
     },
   },

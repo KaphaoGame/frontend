@@ -4,8 +4,13 @@
       <b-col cols="6">
         <div>
           <span class="font-style-title">{{ title }}</span>
-          <router-link :to="{name: 'gamedetail', params: {slug: slug}}">
-            <b-img :src=gameImageURL width="225vw" height="320vh" @click="clickGame" />
+          <router-link :to="{ name: 'gamedetail', params: { slug: slug } }">
+            <b-img
+              :src="gameImageURL"
+              width="225vw"
+              height="320vh"
+              @click="clickGame"
+            />
           </router-link>
         </div>
       </b-col>
@@ -30,15 +35,44 @@
 
       <b-col class="d-flex flex-column-reverse">
         <div class="padding-progress">
-          <b-progress :value="100" variant="success" striped :animated="animate" class="mt-4"></b-progress>
-          <b-progress :value="100" variant="success" :animated="animate" class="mt-4"></b-progress>
-          <b-progress :value="70" variant="success" striped :animated="animate" class="mt-4"></b-progress>
-          <b-progress :value="50" variant="warning" striped :animated="animate" class="mt-4"></b-progress>
-          <b-progress :value="30" variant="danger" striped :animated="animate" class="mt-4"></b-progress>
+          <b-progress
+            :value="100"
+            variant="success"
+            striped
+            :animated="animate"
+            class="mt-4"
+          ></b-progress>
+          <b-progress
+            :value="100"
+            variant="success"
+            :animated="animate"
+            class="mt-4"
+          ></b-progress>
+          <b-progress
+            :value="70"
+            variant="success"
+            striped
+            :animated="animate"
+            class="mt-4"
+          ></b-progress>
+          <b-progress
+            :value="50"
+            variant="warning"
+            striped
+            :animated="animate"
+            class="mt-4"
+          ></b-progress>
+          <b-progress
+            :value="30"
+            variant="danger"
+            striped
+            :animated="animate"
+            class="mt-4"
+          ></b-progress>
         </div>
         <b-col align-self="start">
           <div class="mock-score">
-            <span>{{metacritic}}</span>
+            <span>{{ metacritic }}</span>
           </div>
         </b-col>
       </b-col>
@@ -47,7 +81,7 @@
 </template>
 
 <script>
-import { mapActions, mapState } from 'vuex';
+import { mapActions, mapState } from "vuex";
 
 export default {
   props: ["title", "gameImageURL", "metacritic", "slug"],
@@ -58,14 +92,15 @@ export default {
   },
   computed: {
     ...mapState("topGameCard", ["slugData"]),
+    ...mapState("gameDetail", ["data"]),
   },
   methods: {
     ...mapActions("topGameCard", ["topGameCardSlugAction"]),
-    clickGame() {
-      this.topGameCardSlugAction(this.slug)
-    }
-  },
 
+    clickGame() {
+      this.topGameCardSlugAction(this.slug);
+    },
+  },
 };
 </script>
 

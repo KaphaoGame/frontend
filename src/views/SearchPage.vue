@@ -33,6 +33,7 @@
 import GameCard from "../components/searchComponent/GameCard.vue"
 
 export default {
+  name: 'search',
 
   data(){
     return {

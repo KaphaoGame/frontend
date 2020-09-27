@@ -10,21 +10,60 @@
         </div>
         <b-col class="d-flex flex-column-reverse">
           <div>
-            <b-progress :value="100" variant="success" striped :animated="animate" class="mt-4"></b-progress>
+            <b-progress
+              :value="100"
+              variant="success"
+              striped
+              :animated="animate"
+              class="mt-4"
+            ></b-progress>
             <hr />
-            <b-progress :value="25" variant="success" striped :animated="animate" class="mt-4"></b-progress>
+            <b-progress
+              :value="25"
+              variant="success"
+              striped
+              :animated="animate"
+              class="mt-4"
+            ></b-progress>
             <hr />
-            <b-progress :value="50" variant="info" striped :animated="animate" class="mt-4"></b-progress>
+            <b-progress
+              :value="50"
+              variant="info"
+              striped
+              :animated="animate"
+              class="mt-4"
+            ></b-progress>
             <hr />
-            <b-progress :value="75" variant="warning" striped :animated="animate" class="mt-4"></b-progress>
+            <b-progress
+              :value="75"
+              variant="warning"
+              striped
+              :animated="animate"
+              class="mt-4"
+            ></b-progress>
             <hr />
-            <b-progress :value="100" variant="danger" :animated="animate" class="mt-4"></b-progress>
+            <b-progress
+              :value="100"
+              variant="danger"
+              :animated="animate"
+              class="mt-4"
+            ></b-progress>
             <hr />
           </div>
         </b-col>
-        <span>Platform PC, PS5, XBOX</span>
+        <div>
+          <span>Platform: </span>
+          <span v-for="platform in platforms" :key="platform"
+            >{{ platform }},
+          </span>
+        </div>
         <br /><br />
-        <span>Developer EA</span>
+        <div>
+          <span>Developer: </span>
+          <span v-for="developer in developers" :key="developer"
+            >{{ developer }}
+          </span>
+        </div>
       </b-col>
 
       <b-col class="text-align-center">
@@ -50,27 +89,56 @@
         <span id="font-style">Official Score</span>
         <b-col align="center">
           <div id="mock-score2">
-            <span>85</span>
+            <span>{{ metacritic }}</span>
           </div>
         </b-col>
         <b-col class="d-flex flex-column-reverse">
           <div>
-            <b-progress :value="100" variant="success" striped :animated="animate" class="mt-4"></b-progress>
+            <b-progress
+              :value="100"
+              variant="success"
+              striped
+              :animated="animate"
+              class="mt-4"
+            ></b-progress>
             <hr />
-            <b-progress :value="25" variant="success" striped :animated="animate" class="mt-4"></b-progress>
+            <b-progress
+              :value="25"
+              variant="success"
+              striped
+              :animated="animate"
+              class="mt-4"
+            ></b-progress>
             <hr />
-            <b-progress :value="50" variant="info" striped :animated="animate" class="mt-4"></b-progress>
+            <b-progress
+              :value="50"
+              variant="info"
+              striped
+              :animated="animate"
+              class="mt-4"
+            ></b-progress>
             <hr />
-            <b-progress :value="75" variant="warning" striped :animated="animate" class="mt-4"></b-progress>
+            <b-progress
+              :value="75"
+              variant="warning"
+              striped
+              :animated="animate"
+              class="mt-4"
+            ></b-progress>
             <hr />
-            <b-progress :value="100" variant="danger" :animated="animate" class="mt-4"></b-progress>
+            <b-progress
+              :value="100"
+              variant="danger"
+              :animated="animate"
+              class="mt-4"
+            ></b-progress>
             <hr />
           </div>
         </b-col>
         <br /><br />
         <span>Write your review </span>
-        <router-link to="/gamereview"> 
-          <img src="../../assets/penIcon.png" class="pen-icon"/>
+        <router-link :to="{ name: 'gamereview', params: { slug: slug } }">
+          <img src="../../assets/penIcon.png" class="pen-icon" />
         </router-link>
       </b-col>
     </b-row>
@@ -80,9 +148,7 @@
 
 <script>
 export default {
-  props: [
-      "title"
-    ],
+  props: ["title", "metacritic", "platforms", "developers", "slug"],
   data() {
     return {
       animate: true,
@@ -94,7 +160,7 @@ export default {
 <style>
 #font-style {
   font-size: 2vw;
-}   
+}
 #score-card {
   background: #b3c0ca;
   border-radius: 10px;
