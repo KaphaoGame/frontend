@@ -125,7 +125,7 @@ export default {
   },
   methods: {
     ...mapActions("gameDetail", ["dataAction"]),
-    ...mapActions("topGameCard", ["topGameCardDataAction"]),
+    ...mapActions("topGameCard", ["topGameCardDataAction"])
   },
   created() {
     if (this.getSlugData) {
