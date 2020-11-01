@@ -77,49 +77,15 @@
         <br />
 
         <b-col>
-          <div>
-            <span id="mock-score">9.5</span>
-            <span id="font-style2"> Half Life 3</span>
+          <div v-for="(item, index) in getTopGameCard" :key="item.gameName">
+            <div v-if="index < 5" >
+              <span id="mock-score">{{item.metacriticScore}}</span>
+              <span id="font-style2">{{item.gameName}}</span>
+              <br />
+            </div>
           </div>
         </b-col>
 
-        <br />
-
-        <b-col>
-          <div>
-            <span id="mock-score">9.5</span>
-            <span id="font-style2"> Left 4 Dead 3</span>
-          </div>
-        </b-col>
-
-        <br />
-
-        <b-col>
-          <div>
-            <span id="mock-score">9.5</span>
-            <span id="font-style2"> Dota 3</span>
-          </div>
-        </b-col>
-
-        <br />
-
-        <b-col>
-          <div>
-            <span id="mock-score">9.5</span>
-            <span id="font-style2"> Portal 3</span>
-          </div>
-        </b-col>
-
-        <br />
-
-        <b-col>
-          <div>
-            <span id="mock-score">9.5</span>
-            <span id="font-style2"> Payday 3</span>
-          </div>
-        </b-col>
-
-        <br />
       </b-col>
     </b-row>
 
@@ -151,12 +117,15 @@ export default {
       getDataGameDescription: "gameDetail/getDataGameDescription",
       getDataPlatforms: "gameDetail/getDataPlatforms",
       getDataGameDevelopers: "gameDetail/getDataGameDevelopers",
-      getDataGenres: "gameDetail/getDataGenres"
+      getDataGenres: "gameDetail/getDataGenres",
+      getTopGameCard: "topGameCard/getTopGameCardData",
     }),
     ...mapState("gameDetail", ["data"]),
+    ...mapState("topGameCard", ["topGameCardData"]),
   },
   methods: {
     ...mapActions("gameDetail", ["dataAction"]),
+    ...mapActions("topGameCard", ["topGameCardDataAction"]),
   },
   created() {
     if (this.getSlugData) {
@@ -164,6 +133,7 @@ export default {
     }else {
       this.dataAction(this.getSlugDataNew);
     }
+    this.topGameCardDataAction();
   },
 };
 </script>
@@ -212,6 +182,6 @@ export default {
 }
 
 #font-style2 {
-  font-size: 1.5vw;
+  font-size: 1.25vw;
 }
 </style>
