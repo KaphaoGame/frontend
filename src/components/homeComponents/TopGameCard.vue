@@ -1,13 +1,13 @@
 <template>
   <b-col align-self="between">
     <b-row id="background-card">
-      <b-col cols="6">
+      <b-col cols="10">
         <div>
           <span class="font-style-title">{{ title }}</span>
           <router-link :to="{ name: 'gamedetail', params: { slug: slug } }">
             <b-img
               :src="gameImageURL"
-              width="225vw"
+              width="500vw"
               height="320vh"
               @click="clickGame"
             />
@@ -16,20 +16,20 @@
       </b-col>
 
       <b-col class="d-flex flex-column-reverse">
-        <b-row class="mb-3 d-flex flex-row-reverse">
-          <span>Story</span>
+        <b-row class="mb-3 d-flex flex-row">
+          <span class="font-style-topgamecard">Story</span>
         </b-row>
-        <b-row class="mb-3 d-flex flex-row-reverse">
-          <span>Gameplay</span>
+        <b-row class="mb-3 d-flex flex-row">
+          <span class="font-style-topgamecard">Gameplay</span>
         </b-row>
-        <b-row class="mb-3 d-flex flex-row-reverse">
-          <span>Graphics</span>
+        <b-row class="mb-3 d-flex flex-row">
+          <span class="font-style-topgamecard">Graphics</span>
         </b-row>
-        <b-row class="mb-3 d-flex flex-row-reverse">
-          <span>Performance</span>
+        <b-row class="mb-3 d-flex flex-row">
+          <span class="font-style-topgamecard">Performance</span>
         </b-row>
-        <b-row class="mb-3 d-flex flex-row-reverse">
-          <span>Sound</span>
+        <b-row class="mb-3 d-flex flex-row">
+          <span class="font-style-topgamecard">Sound</span>
         </b-row>
       </b-col>
 
@@ -107,10 +107,10 @@ export default {
 <style>
 .font-style-title {
   font-size: 1.2vw;
-  color: #212529;
+  color: #ffffff;
 }
 #background-card {
-  background: #e9ecef;
+  background: #212529;
   border-radius: 7px;
 }
 .mock-score {
@@ -118,9 +118,13 @@ export default {
   color: #e9ecef;
   background: #18850c;
   border-radius: 7px;
+  text-align: center;
 }
 .padding-progress {
   padding: 20px;
+}
+.font-style-topgamecard {
+  color: #ffffff;
 }
 </style>>
 

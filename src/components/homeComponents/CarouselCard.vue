@@ -1,49 +1,54 @@
 <template v-slot:img>
-    <div class="container">
-        <div class="row col-12">
-            <div class="col-8">
-                <img
-                    class="d-block img-fluid w-100 bg-image"
-                    width="1024"
-                    height="480"
-                    src="https://wpadmin.gamefever.co/wp-content/uploads/2020/03/final-fantasy-7-remake.jpg"
-                    alt="image slot"
-                    >
-            </div>
-            <div class="col-4 bg">
-                <div class="example-review text-center">
-                    <span>Latest Users' Reviews</span>
-                </div>
-                <div>
-                    <span>"yahoo"</span>
-                </div>
-            </div>
-        </div>
-        
-
+  <div class="container">
+    <div class="row col-12">
+      <span>{{ title }}</span>
+      <router-link :to="{ name: 'gamedetail', params: { slug: slug } }">
+        <img
+          class="d-block img-fluid w-100 bg-image"
+          width="1024"
+          height="480"
+          :src="gameImageURL"
+          alt="image slot"
+          @click="clickGame"
+        />
+      </router-link>
     </div>
+  </div>
 </template>
 
 <script>
-export default {
+import { mapActions, mapState } from "vuex";
 
-}
+export default {
+  props: ["title", "gameImageURL", "metacritic", "slug"],
+  computed: {
+    ...mapState("newGameCard", ["slugData"]),
+    ...mapState("gameDetail", ["data"]),
+  },
+  methods: {
+    ...mapActions("newGameCard", ["newGameCardSlugAction"]),
+
+    clickGame() {
+      this.newGameCardSlugAction(this.slug);
+    },
+  },
+};
 </script>
 
 <style>
 .font-style {
   font-size: 10px;
-  color: #E8EAEC;
+  color: #e8eaec;
 }
 .example-review {
-    font-size: 1.5vw;
-    color: #E8EAEC;
+  font-size: 1.5vw;
+  color: #e8eaec;
 }
 .bg {
-    background: #6C757D;
-    border-radius: 3%;
+  background: #6c757d;
+  border-radius: 3%;
 }
 .bg-image {
-    border-radius: 10px;
+  border-radius: 10px;
 }
 </style>

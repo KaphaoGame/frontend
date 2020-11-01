@@ -9,6 +9,11 @@ class GameListAPI extends HttpRequest {
     const {data} = await this.get('/')
     return data
   }
+
+  async getNewGameCardsFromAPI () {
+    const {data} = await this.get('/new-release')
+    return data 
+  }
 }
 
 export default GameListAPI

@@ -143,6 +143,7 @@ export default {
   computed: {
     ...mapGetters({
       getSlugData: "topGameCard/getSlugData",
+      getSlugDataNew: "newGameCard/getSlugData",
       getData: "gameDetail/getData",
       getDataGameName: "gameDetail/getDataGameName",
       getDataGameImageURL: "gameDetail/getDataGameImageURL",
@@ -158,7 +159,11 @@ export default {
     ...mapActions("gameDetail", ["dataAction"]),
   },
   created() {
-    this.dataAction(this.getSlugData);
+    if (this.getSlugData) {
+      this.dataAction(this.getSlugData);
+    }else {
+      this.dataAction(this.getSlugDataNew);
+    }
   },
 };
 </script>
