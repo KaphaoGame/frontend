@@ -1,16 +1,17 @@
 ## ชื่อกลุ่ม
 - Kaphao Game
 
+
 ## ชื่อระบบ
 - เว็บรีวิวเกม
 
 ## ชื่อและรหัสนิสิต
-- 6110402818 นายปริวัตร มากเทพวงศ์ (Member)
-- 6110406279 นายอิศม์เดช พงศภัคไพบูลย์ (Member)
-- 6110406201 นายวัชริศ สายพิมพ์ (Member)
-- 6110406139 นายพิชญ์ทัช ศิริพรโภคา (Member)
-- 6110406121 นายพันธุ์ธิชชัย   ขรรค์บริวาร (SE Project Collaborator)
-- 6110400106 นายณัฐวรรธน์  สุนทรเสถียรกุล (SE Project Collaborator)
+- 6110402818 นายปริวัตร มากเทพวงศ์ (Member) https://github.com/6110402818
+- 6110406279 นายอิศม์เดช พงศภัคไพบูลย์ (Member) https://github.com/6110406279
+- 6110406201 นายวัชริศ สายพิมพ์ (Member) https://github.com/mahou2399
+- 6110406139 นายพิชญ์ทัช ศิริพรโภคา (Member) https://github.com/pichathat-6110406139
+- 6110406121 นายพันธุ์ธิชชัย   ขรรค์บริวาร (SE Project Collaborator) https://github.com/comment4C
+- 6110400106 นายณัฐวรรธน์  สุนทรเสถียรกุล (SE Project Collaborator) https://github.com/6110400106
 ##### หมายเหตุ SE Project Collaborator ไม่ได้เป็นสมาชิกกลุ่มในวิชา Web Tech 
 
 ## ฟังก์ชันการทำงานของระบบ
@@ -48,29 +49,6 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 - การพัฒนาหลักๆจะทำใน branch develop เท่านั้น และจะ merge ลง branch master เมื่อสมบูรณ์แล้วเท่านั้น โดยมีคนจัดการหลักคือ 6110406121 นายพันธุ์ธิชชัย   ขรรค์บริวาร (SE Project Collaborator)
 - แต่ละคนสามารถสร้าง branch ของตัวเองเพื่อทดลองได้
 
-# Application structure
-
-```
-├─ src
-├── api
-├── assets
-|   └─ static file
-├── components
-│   ├─ ResusableComponentA
-│   |   ├─ index.js
-│   |   ├─ ReusableComponentA.vue
-│  	|	└─ ReusableComponentA.spec.js
-|   └─ ResusableComponentB
-|       ├─ index.js
-|       └─ ReusableComponentB.vue
-|       
-├── routes
-│   └─ index.js
-├── views
-├── main.js
-├── App.vue
-```
-
 **API Directory**
 
 The `api` directory contains application programing interface.
@@ -90,29 +68,3 @@ The `router` directory contains application routes.
 **Views Directory**
 
 The `views` directory contains application views.
-
-
-# frontend
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
