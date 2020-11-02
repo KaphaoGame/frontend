@@ -17,44 +17,54 @@
           </b-col>
         </b-row>
       </template>
-      <b-dropdown-form>
-        <b-form-group
-          label="Username"
-          label-for="dropdown-form-email"
-          @submit.stop.prevent
-        >
-          <b-form-input
-            id="dropdown-form-email"
-            size="sm"
-            placeholder="Username"
-            v-model="user.username"
-          ></b-form-input>
-        </b-form-group>
+      <div v-if="getLoginStatus === false">
+        <b-dropdown-form>
+          <b-form-group
+            label="Username"
+            label-for="dropdown-form-email"
+            @submit.stop.prevent
+          >
+            <b-form-input
+              id="dropdown-form-email"
+              size="sm"
+              placeholder="Username"
+              v-model="user.username"
+            ></b-form-input>
+          </b-form-group>
 
-        <b-form-group label="Password" label-for="dropdown-form-password">
-          <b-form-input
-            id="dropdown-form-password"
-            type="password"
-            size="sm"
-            placeholder="Password"
-            v-model="user.password"
-          ></b-form-input>
-        </b-form-group>
+          <b-form-group label="Password" label-for="dropdown-form-password">
+            <b-form-input
+              id="dropdown-form-password"
+              type="password"
+              size="sm"
+              placeholder="Password"
+              v-model="user.password"
+            ></b-form-input>
+          </b-form-group>
 
+          <router-link to="/">
+            <b-button variant="primary" size="sm" v-on:click="handleSubmit()">
+              Login
+            </b-button>
+          </router-link>
+        </b-dropdown-form>
+
+        <b-dropdown-divider></b-dropdown-divider>
+
+        <b-dropdown-item-button
+          ><router-link to="/register"
+            >New around here? Sign up</router-link
+          ></b-dropdown-item-button
+          >
+      </div>
+
+      <b-dropdown-form v-else>
         <router-link to="/">
-          <b-button variant="primary" size="sm" v-on:click="handleSubmit()">
-            Login
+          <b-button variant="primary" size="sm" v-on:click="handleLogout()">
+            Logout
           </b-button>
         </router-link>
       </b-dropdown-form>
-
-      <b-dropdown-divider></b-dropdown-divider>
-      
-      <b-dropdown-item-button
-        ><router-link to="/register"
-          >New around here? Sign up</router-link
-        ></b-dropdown-item-button
-      >
     </b-dropdown>
   </div>
 </template>
@@ -79,12 +89,14 @@ export default {
       password: null,
       displayName: null,
       userName: null,
-    }
+      loginStatus: false,
+    },
   }),
   computed: {
     ...mapState("account", ["status"]),
     ...mapGetters({
       getDisplayName: "account/getDisplayName",
+      getLoginStatus: "account/getLoginStatus",
     })
   },
   methods: {
@@ -102,7 +114,19 @@ export default {
       this.profile.password = profile.password;
       this.profile.displayName = profile.displayName;
       this.profile.userName = profile.userName;
+      this.profile.loginStatus = true;
     },
+    async handleLogout() {
+      this.user.username = null;
+      this.user.password = null;
+      this.profile.firstName = null;
+      this.profile.lastName = null;
+      this.profile.email = null;
+      this.profile.password = null;
+      this.profile.displayName = null;
+      this.profile.userName = null;
+      this.profile.loginStatus = false;
+    }
   },
 };
 </script>

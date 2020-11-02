@@ -10,6 +10,7 @@ const state = {
         password: null,
         displayName: null,
         userName: null,
+        loginStatus: false,
     }
 };
 
@@ -22,10 +23,14 @@ const actions = {
         commit("setPassword", user.password);
         commit("setDisplayName", user.displayName);
         commit("setUserName", user.userName);
+        commit("setLoginStatus", user.loginStatus);
     },
     register({ commit }, user) {
         commit('registerRequest', user);
-    }, 
+    },
+    logout({ commit }) {
+        commit("logout");
+    }
 };
 
 const getters = {
@@ -49,6 +54,9 @@ const getters = {
     },
     getUserName(state) {
         return state.user.userName;
+    },
+    getLoginStatus(state) {
+        return state.user.loginStatus;
     }
 }
 
@@ -81,6 +89,9 @@ const mutations = {
     },
     setUserName(state, userName) {
         state.user.userName = userName;
+    },
+    setLoginStatus(state, loginStatus) {
+        state.user.loginStatus = loginStatus;
     }
 };
 

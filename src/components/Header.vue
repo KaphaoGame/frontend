@@ -4,19 +4,23 @@
       <b-collapse id="nav-collapse" is-nav>
         <b-nav>
           <b-col>
-            <b-nav-item href="/">
+            <router-link to="/">
               <img src="../assets/kaphaogamelogo.png" class="logo" />
-            </b-nav-item>
+            </router-link>
           </b-col>
         </b-nav>
         <b-nav>
           <b-col>
-            <b-nav-item href="/" link-classes="font-nav-bar">Home</b-nav-item>
+            <router-link to="/" link-classes="font-nav-bar">
+              <span class="font-style">Home</span>
+            </router-link>
           </b-col>
         </b-nav>
         <b-nav class="ml-auto">
           <b-col>
-            <b-nav-item href="/FAQ" link-classes="font-nav-bar">FAQ</b-nav-item>
+            <router-link to="/FAQ" link-classes="font-nav-bar">
+              <span class="font-style">FAQ</span>
+            </router-link>
           </b-col>
         </b-nav>
         <ProfileDropDown />
@@ -49,6 +53,7 @@ export default {
 }
 .font-style {
   color: #ffffff;
+  font-size: 1.5vw;
 }
 .logo {
   width: 4.5vw;
