@@ -4,7 +4,7 @@ import HttpRequest from './http_request'
 class AccountService extends HttpRequest {
     constructor(){
         // post for account spring boot application
-        super('http://localhost:8085')
+        super('https://account-kaphaogame.herokuapp.com/')
     }
 
     async createKaphaoGameAccount(formdata) {
