@@ -8,7 +8,6 @@
       <!-- Search Bat -->
       <b-form-tags input-id="tags-basic" v-model="value" placeholder="Name, Tag, Keyword..."></b-form-tags>
       <br>
-      <p class="mt-2"> Value: {{ value }}</p>
 
       <!-- Sorting Bar -->
       <b-button-group class="col-6 offset-3">
@@ -34,12 +33,6 @@ import GameCard from "../components/searchComponent/GameCard.vue"
 
 export default {
   name: 'search',
-
-  data(){
-    return {
-      value: []
-    }
-  },
 
   components: {
     GameCard,
