@@ -133,9 +133,10 @@ export default {
     }else {
       this.dataAction(this.getSlugDataNew);
     }
-    this.topGameCardDataAction();
+    this.topGameCardDataAction(); 
   },
 };
+
 </script>
 
 <style>

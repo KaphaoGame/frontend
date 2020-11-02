@@ -1,27 +1,61 @@
 
-const user = JSON.parse(localStorage.getItem('user'));
-const state = user
-    ? { status: { loggedIn: true }, user }
-    : { status: {}, user: null };
-
-const actions = {
-    register({ commit }, user) {
-        commit('registerRequest', user);
+const state = {
+    status: {
+        loggedIn: true
+    },
+    user: {
+        firstName: null,
+        lastName: null,
+        email: null,
+        password: null,
+        displayName: null,
+        userName: null,
     }
 };
+
+const actions = {
+    login({ commit }, user) {
+        commit("loginRequest", user);
+        commit("setFirstName", user.firstName);
+        commit("setLastName", user.lastName);
+        commit("setEmail", user.email);
+        commit("setPassword", user.password);
+        commit("setDisplayName", user.displayName);
+        commit("setUserName", user.userName);
+    },
+    register({ commit }, user) {
+        commit('registerRequest', user);
+    }, 
+};
+
+const getters = {
+    getUser(state) {
+        return state.user;
+    },
+    getFirstName(state) {
+        return state.user.firstName;
+    },
+    getLastName(state) {
+        return state.user.lastName;
+    },
+    getEmail(state) {
+        return state.user.email;
+    },
+    getPassword(state) {
+        return state.user.password;
+    },
+    getDisplayName(state) {
+        return state.user.displayName;
+    },
+    getUserName(state) {
+        return state.user.userName;
+    }
+}
 
 const mutations = {
     loginRequest(state, user) {
         state.status = { loggingIn: true };
         state.user = user;
-    },
-    loginSuccess(state, user) {
-        state.status = { loggedIn: true };
-        state.user = user;
-    },
-    loginFailure(state) {
-        state.status = {};
-        state.user = null;
     },
     logout(state) {
         state.status = {};
@@ -30,17 +64,30 @@ const mutations = {
     registerRequest(state) {
         state.status = { registering: true };
     },
-    registerSuccess(state) {
-        state.status = {};
+    setFirstName(state, firstName) {
+        state.user.firstName = firstName;
     },
-    registerFailure(state) {
-        state.status = {};
+    setLastName(state, lastName) {
+        state.user.lastName = lastName;
     },
+    setEmail(state, email) {
+        state.user.email = email;
+    },
+    setPassword(state, password) {
+        state.user.password = password;
+    },
+    setDisplayName(state, displayName) {
+        state.user.displayName = displayName;
+    },
+    setUserName(state, userName) {
+        state.user.userName = userName;
+    }
 };
 
 export const account = {
     namespaced: true,
     state,
     actions,
+    getters,
     mutations
 };

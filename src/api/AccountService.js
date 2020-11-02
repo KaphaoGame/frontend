@@ -16,6 +16,11 @@ class AccountService extends HttpRequest {
         const response = await this.get('api/getAllAccounts')
         return response
     }
+
+    async loginKaphaoGameAccount(formdata) {
+        const response = await this.create('api/loginAccount', formdata)
+        return response.data
+    }
 }
 
 export default AccountService

@@ -75,6 +75,7 @@ export default {
     ...mapGetters({
       getTopGameCard: "topGameCard/getTopGameCardData",
       getNewGameCard: "newGameCard/getNewGameCardData",
+      getUser: "account/getUser",
     }),
   },
   methods: {

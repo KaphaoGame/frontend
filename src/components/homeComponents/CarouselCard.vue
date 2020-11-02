@@ -27,9 +27,11 @@ export default {
   },
   methods: {
     ...mapActions("newGameCard", ["newGameCardSlugAction"]),
+    ...mapActions("topGameCard", ["topGameCardSlugAction"]),
 
     clickGame() {
       this.newGameCardSlugAction(this.slug);
+      this.topGameCardSlugAction(null);
     },
   },
 };

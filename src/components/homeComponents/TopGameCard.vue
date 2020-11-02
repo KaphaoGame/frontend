@@ -96,9 +96,10 @@ export default {
   },
   methods: {
     ...mapActions("topGameCard", ["topGameCardSlugAction"]),
-
+    ...mapActions("newGameCard", ["newGameCardSlugAction"]),
     clickGame() {
       this.topGameCardSlugAction(this.slug);
+      this.newGameCardSluhAction(null);
     },
   },
 };
