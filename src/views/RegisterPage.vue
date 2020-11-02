@@ -49,7 +49,10 @@
         <br /><br /><br /><br /><br /><br />
                 
       </div>
-        <button class="btn btn-primary col-md-2 offset-5" v-on:click="handleSubmit()">Register</button>
+        <router-link to="/">
+          <button class="btn btn-primary col-md-2 offset-5" v-on:click="handleSubmit()">Register</button>
+        </router-link>
+        <br />
     </div>
   </div>
 </template>
