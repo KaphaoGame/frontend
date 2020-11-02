@@ -26,9 +26,9 @@
         <ProfileDropDown />
         <b-nav>
           <b-col>
-            <b-nav-item href="search">
+            <router-link to="/search">
               <img src="../assets/search.png" class="logo-search" />
-            </b-nav-item>
+            </router-link>
           </b-col>
         </b-nav>
       </b-collapse>
