@@ -3,7 +3,7 @@
     <br />
     <h1 class="font-style">{{ getDataGameName }}</h1>
     <br />
-
+    {{getCommentData}}
     <b-row class="mb-3">
       <b-img :src="getDataGameImageURL" width="300px" height="540px" />
       <b-col
@@ -65,6 +65,8 @@
             know what to write paragraph. I don't know what to write paragraph."
           />
           <br />
+
+          
         </div>
       </b-col>
 
@@ -119,13 +121,16 @@ export default {
       getDataGameDevelopers: "gameDetail/getDataGameDevelopers",
       getDataGenres: "gameDetail/getDataGenres",
       getTopGameCard: "topGameCard/getTopGameCardData",
+      getCommentData: "reviewService/getCommentData"
     }),
     ...mapState("gameDetail", ["data"]),
     ...mapState("topGameCard", ["topGameCardData"]),
+    ...mapState("reviewService", ["commentData"])
   },
   methods: {
     ...mapActions("gameDetail", ["dataAction"]),
-    ...mapActions("topGameCard", ["topGameCardDataAction"])
+    ...mapActions("topGameCard", ["topGameCardDataAction"]),
+    ...mapActions("reviewService", ["commentDataAction"])
   },
   created() {
     if (this.getSlugData) {
@@ -133,7 +138,9 @@ export default {
     }else {
       this.dataAction(this.getSlugDataNew);
     }
-    this.topGameCardDataAction(); 
+    this.topGameCardDataAction();
+    this.commentDataAction();
+    
   },
 };
 
