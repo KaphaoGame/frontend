@@ -12,29 +12,57 @@
       </div>
 
       <div class="col-8">
-        <div class="align-self-start-username">*Username here*</div>
+        <div class="align-self-start-username">{{ getUserName }}</div>
 
-        <div class="align-self-start-bio">*Enter your long and pointless bio here*</div>
+        <!-- <div class="align-self-start-bio">*Enter your long and pointless bio here*</div> -->
       </div>
     </div>
 
     <br />
 
     <div class="form-group-2">
-      <div class="realName">Real Name: *Real Name Here*</div>
+      <div class="realName">Real Name: {{ getFirstName }} {{getLastName}}</div>
       <br />
-      <div class="displayName">Display Name: *display name here*</div>
+      <div class="displayName">Display Name: {{ getDisplayName }}</div>
       <br />
-      <div class="dateOfBirth">Date of Birth: *date of birth here*</div>
+      <div class="email">Email: {{ getEmail }}</div>
       <br />
-      <div class="email">Email: *email here*</div>
     </div>
   </div>
 </template>
 
 <script>
+  import { mapState, mapActions, mapGetters } from "vuex";
+
   export default {
-    
+    name: "Profile",
+    data: () => ({
+      user: {
+      firstName: null,
+      lastName: null,
+      email: null,
+      password: null,
+      cpassword: null,
+      displayName: null,
+      userName: null,
+      },
+    }),
+    computed: {
+    ...mapState("account", ["status"]),
+    ...mapGetters({
+      getFirstName: "account/getFirstName",
+      getLastName: "account/getLastName",
+      getEmail: "account/getEmail",
+      getDisplayName: "account/getDisplayName",
+      getUserName: "account/getUserName",
+    })
+    },
+    methods: {
+      ...mapActions("account", ["login"]),
+    },
+    created() {
+      console.log(getUserName);
+    },
   };
 </script>
 

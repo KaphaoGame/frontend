@@ -59,6 +59,12 @@
       </div>
 
       <b-dropdown-form v-else>
+        <router-link to="/profile">
+          <b-button variant="primary" size="sm">
+            Profile
+          </b-button>
+        </router-link>
+
         <router-link to="/">
           <b-button variant="primary" size="sm" v-on:click="handleLogout()">
             Logout
