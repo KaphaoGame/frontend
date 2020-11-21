@@ -60,9 +60,6 @@
     methods: {
       ...mapActions("account", ["login"]),
     },
-    created() {
-      console.log(getUserName);
-    },
   };
 </script>
 
