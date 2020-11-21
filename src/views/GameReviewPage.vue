@@ -158,7 +158,6 @@
           max-rows="6"
         ></b-form-textarea>
 
-        <pre class="mt-3 mb-0">{{ text }}</pre>
       </div>
       <div class="d-flex flex-row-reverse">
         <router-link :to="{ name: 'gamedetail', params: { slug: getSlugData } }">
@@ -190,11 +189,13 @@ export default {
       graphicVal: null,
       performanceVal: null,
       soundVal: null,
+      text: null,
     }
   },
   computed: {
     ...mapGetters({
       getSlugData: "topGameCard/getSlugData",
+      getSlugDataNew: "newGameCard/getSlugData",
       getDataGameName: "gameDetail/getDataGameName",
       getDataGameImageURL: "gameDetail/getDataGameImageURL",
       getUserName: "account/getUserName",
@@ -203,15 +204,20 @@ export default {
   methods: {
     handleSubmit() {
       const formdata = new FormData();
-      formdata.append("gameTag", this.getSlugData)
+      if (this.getSlugData) {
+        formdata.append("gameTag", this.getSlugData)
+      }
+      else {
+        formdata.append("gameTag", this.getSlugDataNew)
+      }
       formdata.append("gameName", this.getDataGameName)
       formdata.append("username", this.getUserName)
-      formdata.append("story", 2)
-      formdata.append("gameplay", 3)
-      formdata.append("sound", 3)
-      formdata.append("graphic", 5)
-      formdata.append("performance", 6)
-      formdata.append("comments", "good game")
+      formdata.append("story", this.storyVal)
+      formdata.append("gameplay", this.gameplayVal)
+      formdata.append("sound", this.soundVal)
+      formdata.append("graphic", this.graphicVal)
+      formdata.append("performance", this.performanceVal)
+      formdata.append("comments", this.text)
 
       const check = reviewService.createReview(formdata)
       console.log(check)

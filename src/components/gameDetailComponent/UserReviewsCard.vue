@@ -8,15 +8,15 @@
           </div>
           <div>
             <div class="specific-score" align="start">
-                <span class="specific-score-font">Story</span>
+                <span class="specific-score-font">Story {{storyVal}}</span>
                 <br>
-                <span class="specific-score-font">Gameplay</span>
+                <span class="specific-score-font">Gameplay {{gameplayVal}}</span>
                 <br>
-                <span class="specific-score-font">Graphics</span>
+                <span class="specific-score-font">Graphics {{graphicVal}}</span>
                 <br>
-                <span class="specific-score-font">Performance</span>
+                <span class="specific-score-font">Performance {{performanceVal}}</span>
                 <br>
-                <span class="specific-score-font">Sound</span>
+                <span class="specific-score-font">Sound {{soundVal}}</span>
                 <br>
             </div>
           </div>
@@ -34,8 +34,13 @@
 export default {
     props: [
     'username',
-    'score',
-    'reviewParagraph'
+    'reviewParagraph',
+    'soundVal',
+    'gameplayVal',
+    'performanceVal',
+    'graphicVal',
+    'storyVal',
+    'score',    
   ],
   data() {
       return {

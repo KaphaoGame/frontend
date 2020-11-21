@@ -3,8 +3,7 @@
     <br />
     <h1 class="font-style">{{ getDataGameName }}</h1>
     <br />
-    {{getCommentData}}
-    <b-row class="mb-3">
+      <b-row class="mb-3">
       <b-img :src="getDataGameImageURL" width="300px" height="540px" />
       <b-col
         ><ScoresCard
@@ -38,35 +37,21 @@
 
         <div id="user-reviews-card">
           <h3>User Reviews</h3>
-          <UserReviewsCard
-            username="Kendo"
-            score="90"
-            reviewParagraph="I don't know what to write paragraph. I don't know what to write
-            paragraph. I don't know what to write paragraph. I don't know what
-            to write paragraph. I don't know what to write paragraph. I don't
-            know what to write paragraph. I don't know what to write paragraph."
-          />
-          <br />
-          <UserReviewsCard
-            username="Kendos"
-            score="88"
-            reviewParagraph="I don't know what to write paragraph. I don't know what to write
-            paragraph. I don't know what to write paragraph. I don't know what
-            to write paragraph. I don't know what to write paragraph. I don't
-            know what to write paragraph. I don't know what to write paragraph."
-          />
-          <br />
-          <UserReviewsCard
-            username="KendosOwO"
-            score="95"
-            reviewParagraph="I don't know what to write paragraph. I don't know what to write
-            paragraph. I don't know what to write paragraph. I don't know what
-            to write paragraph. I don't know what to write paragraph. I don't
-            know what to write paragraph. I don't know what to write paragraph."
-          />
-          <br />
-
-          
+          <div v-for="(comment, index) in getCommentData" :key=index>
+            <UserReviewsCard 
+              :username = comment.username
+              score="90"
+              :soundVal = comment.sound
+              :gameplayVal = comment.gameplay
+              :performanceVal = comment.performance
+              :graphicVal = comment.graphic
+              :storyVal = comment.story
+              :reviewParagraph = comment.comments
+            />
+            <br>
+            
+          </div>
+        
         </div>
       </b-col>
 
@@ -130,17 +115,22 @@ export default {
   methods: {
     ...mapActions("gameDetail", ["dataAction"]),
     ...mapActions("topGameCard", ["topGameCardDataAction"]),
-    ...mapActions("reviewService", ["commentDataAction"])
+    ...mapActions("reviewService", ["commentDataAction"]),
+    ...mapActions("newGameCard", ["newGameCardDataAction"])
   },
   created() {
     if (this.getSlugData) {
       this.dataAction(this.getSlugData);
+      this.commentDataAction(this.getSlugData);
+
     }else {
       this.dataAction(this.getSlugDataNew);
+      this.commentDataAction(this.getSlugDataNew);
+
     }
     this.topGameCardDataAction();
-    this.commentDataAction();
-    
+    this.newGameCardDataAction();
+
   },
 };
 
