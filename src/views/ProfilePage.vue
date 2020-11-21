@@ -33,7 +33,6 @@
 
 <script>
   import { mapState, mapActions, mapGetters } from "vuex";
-
   export default {
     name: "Profile",
     data: () => ({
@@ -60,9 +59,6 @@
     methods: {
       ...mapActions("account", ["login"]),
     },
-    created() {
-      console.log(getUserName);
-    },
   };
 </script>
 
@@ -71,16 +67,13 @@
   width: 10vw;
   height: auto;
 }
-
 .align-self-start-username {
   font-size: 2vw;
 }
-
 .form-group-1 {
   font-size: 1vw;
   color: #e8eaec;
 }
-
 .form-group-2 {
   font-size: 2vw;
   color: #e8eaec;

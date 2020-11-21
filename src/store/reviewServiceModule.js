@@ -3,9 +3,7 @@ const reviewserviceAPI = new ReviewServiceAPI()
 
 const state = {
     commentData:{
-
-        comments: [],
-        
+        comments: [],    
     }
 }
 
@@ -22,8 +20,8 @@ const getters = {
 }
 
 const actions = {
-    async commentDataAction({commit}){
-        const data = await reviewserviceAPI.getCommentFromAPI()
+    async commentDataAction({commit}, gameTag){
+        const data = await reviewserviceAPI.getCommentFromAPI(gameTag)
         console.log(data.data)
         commit('commentDataMutation', data.data)
         

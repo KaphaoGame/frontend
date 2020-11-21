@@ -102,7 +102,7 @@
       </div>
       <div class="d-flex flex-row-reverse">
         <router-link :to="{ name: 'gamedetail', params: { slug: getSlugData } }">
-          <b-button variant="primary">SUBMIT</b-button>
+          <b-button variant="primary" v-on:click="handleSubmit()">SUBMIT</b-button>
         </router-link>
       </div>
     </div>
@@ -113,30 +113,44 @@
 <script>
 import { mapGetters } from "vuex";
 import RatingStar from "../components/GameReviewComponent/RatingForm";
+import ReviewServiceAPI from "@/api/ReviewServiceAPI";
+
+const reviewService = new ReviewServiceAPI();
+
 export default {
   name: "gamereview",
 
   components: {
     RatingStar,
   },
-  data() {
-    return {
-      mainProps: {
-        blank: true,
-        blankColor: "#777",
-        width: 75,
-        height: 75,
-        class: "m1",
-      },
-    };
-  },
+  data: () => ({
+
+  }),
   computed: {
     ...mapGetters({
       getSlugData: "topGameCard/getSlugData",
       getDataGameName: "gameDetail/getDataGameName",
       getDataGameImageURL: "gameDetail/getDataGameImageURL",
+      getUserName: "account/getUserName",
     }),
   },
+  methods: {
+    handleSubmit() {
+      const formdata = new FormData();
+      formdata.append("gameTag", this.getSlugData)
+      formdata.append("gameName", this.getDataGameName)
+      formdata.append("username", this.getUserName)
+      formdata.append("story", 2)
+      formdata.append("gameplay", 3)
+      formdata.append("sound", 3)
+      formdata.append("graphic", 5)
+      formdata.append("performance", 6)
+      formdata.append("comments", "good game")
+
+      const check = reviewService.createReview(formdata)
+      console.log(check)
+    }
+  }
 };
 </script>
 
