@@ -57,31 +57,91 @@
     <div class="font-style-3">
       <label>Story</label>
     </div>
-    <RatingStar />
+    <div>
+      <b-input-group>
+        <b-input-group-prepend>
+          <b-button @click="storyVal = null">Clear</b-button>
+        </b-input-group-prepend>
+        <b-form-rating v-model="storyVal" color="#ff8800" stars="10"></b-form-rating>
+        <b-input-group-append>
+          <b-input-group-text class="justify-content-center" style="min-width: 3em;">
+            {{ storyVal }}
+          </b-input-group-text>
+        </b-input-group-append>
+      </b-input-group>
+    </div>
     <br />
 
     <div class="font-style-3">
       <label>Gameplay</label>
     </div>
-    <RatingStar />
+    <div>
+      <b-input-group>
+        <b-input-group-prepend>
+          <b-button @click="gameplayVal = null">Clear</b-button>
+        </b-input-group-prepend>
+        <b-form-rating v-model="gameplayVal" color="#ff8800" stars="10"></b-form-rating>
+        <b-input-group-append>
+          <b-input-group-text class="justify-content-center" style="min-width: 3em;">
+            {{ gameplayVal }}
+          </b-input-group-text>
+        </b-input-group-append>
+      </b-input-group>
+    </div>
     <br />
 
     <div class="font-style-3">
       <label>Graphics</label>
     </div>
-    <RatingStar />
+    <div>
+      <b-input-group>
+        <b-input-group-prepend>
+          <b-button @click="graphicVal = null">Clear</b-button>
+        </b-input-group-prepend>
+        <b-form-rating v-model="graphicVal" color="#ff8800" stars="10"></b-form-rating>
+        <b-input-group-append>
+          <b-input-group-text class="justify-content-center" style="min-width: 3em;">
+            {{ graphicVal }}
+          </b-input-group-text>
+        </b-input-group-append>
+      </b-input-group>
+    </div>
     <br />
 
     <div class="font-style-3">
       <label>Performance</label>
     </div>
-    <RatingStar />
+    <div>
+      <b-input-group>
+        <b-input-group-prepend>
+          <b-button @click="performanceVal = null">Clear</b-button>
+        </b-input-group-prepend>
+        <b-form-rating v-model="performanceVal" color="#ff8800" stars="10"></b-form-rating>
+        <b-input-group-append>
+          <b-input-group-text class="justify-content-center" style="min-width: 3em;">
+            {{ performanceVal }}
+          </b-input-group-text>
+        </b-input-group-append>
+      </b-input-group>
+    </div>
     <br />
 
     <div class="font-style-3">
       <label>Sound</label>
     </div>
-    <RatingStar />
+    <div>
+      <b-input-group>
+        <b-input-group-prepend>
+          <b-button @click="soundVal = null">Clear</b-button>
+        </b-input-group-prepend>
+        <b-form-rating v-model="soundVal" color="#ff8800" stars="10"></b-form-rating>
+        <b-input-group-append>
+          <b-input-group-text class="justify-content-center" style="min-width: 3em;">
+            {{ soundVal }}
+          </b-input-group-text>
+        </b-input-group-append>
+      </b-input-group>
+    </div>
     <br />
 
     <div class="mb-2">
@@ -112,7 +172,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import RatingStar from "../components/GameReviewComponent/RatingForm";
+// import RatingStar from "../components/GameReviewComponent/RatingForm";
 import ReviewServiceAPI from "@/api/ReviewServiceAPI";
 
 const reviewService = new ReviewServiceAPI();
@@ -121,11 +181,17 @@ export default {
   name: "gamereview",
 
   components: {
-    RatingStar,
+    // RatingStar,
   },
-  data: () => ({
-
-  }),
+  data() {
+    return {
+      storyVal: null,
+      gameplayVal: null,
+      graphicVal: null,
+      performanceVal: null,
+      soundVal: null,
+    }
+  },
   computed: {
     ...mapGetters({
       getSlugData: "topGameCard/getSlugData",
