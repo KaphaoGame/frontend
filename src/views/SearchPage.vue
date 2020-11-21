@@ -39,28 +39,60 @@ export default {
     return {
       searchWord: '',
       gameList: [],
+      found: false,
     }
   },
   components: {
     GameCard
   },
   computed: {
+    ...mapState("topGameCard", ["topGameCardData"]),
     ...mapState("newGameCard", ["newGameCardData"]),
     ...mapGetters({
+      getTopGameCard: "topGameCard/getTopGameCardData",
       getNewGameCard: "newGameCard/getNewGameCardData",
       getUser: "account/getUser",
     }),
     filteredList() {
-      return this.getNewGameCard.filter(game => {
+      return this.gameList.filter(game => {
         return game.gameName.toLowerCase().includes(this.searchWord.toLowerCase())
       })
     }
   },
   methods: {
+    ...mapActions("topGameCard", ["topGameCardSlugAction"]),
     ...mapActions("newGameCard", ["newGameCardSlugAction"]),
   },
   created() {
+    // console.log(this.getNewGameCard)
+    // console.log(this.getTopGameCard)
+    this.topGameCardSlugAction();
     this.newGameCardSlugAction();
+    this.getNewGameCard.forEach(element => {
+      this.gameList.forEach(game => {
+        if(element.gameName === game.gameName) {
+          this.found = true;
+        }
+      });
+      if(this.found === false) {
+        this.gameList.push(element);
+      }
+      this.found = false;
+    });
+    // console.log(this.gameList)
+    this.getTopGameCard.forEach(element => {
+      this.gameList.forEach(game => {
+        if(element.gameName === game.gameName) {
+          this.found = true;
+        }
+      });
+      if(this.found === false) {
+        this.gameList.push(element);
+      }
+      this.found = false;
+    });
+    // console.log(this.gameList)
+
   },
 }
 </script>

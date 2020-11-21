@@ -149,7 +149,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters, mapState } from "vuex";
+import { mapGetters, mapState } from "vuex";
 
 export default {
   props: ["title", "metacritic", "platforms", "developers", "slug"],

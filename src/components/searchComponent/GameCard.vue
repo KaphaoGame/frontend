@@ -43,12 +43,13 @@ export default {
     ...mapActions("topGameCard", ["topGameCardSlugAction"]),
     ...mapActions("newGameCard", ["newGameCardSlugAction"]),
     clickGame() {
-      this.topGameCardSlugAction(null);
-      this.newGameCardSlugAction(this.slug);
+      this.topGameCardSlugAction(this.slug);
+      this.newGameCardSlugAction(null);
     },
   },
   created() {
-    // this.newGameCardDataAction();
+    this.topGameCardSlugAction();
+    this.newGameCardSlugAction();
   },
 };
 </script>
