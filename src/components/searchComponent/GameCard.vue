@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-card no-body class="overflow-hidden">
-      <b-row no-gutters>
+      <b-row no-gutters cols="2">
         <b-col md="6">
           <router-link :to="{ name: 'gamedetail', params: { slug: slug } }">
             <img
@@ -55,6 +55,6 @@ export default {
 
 <style>
 .game-img {
-  width: 44vw;
+  width: 40vw;
 }
 </style>

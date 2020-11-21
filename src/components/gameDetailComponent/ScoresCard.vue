@@ -136,10 +136,12 @@
           </div>
         </b-col>
         <br /><br />
-        <span>Write your review </span>
-        <router-link :to="{ name: 'gamereview', params: { slug: slug } }">
-          <img src="../../assets/penIcon.png" class="pen-icon" />
-        </router-link>
+        <div v-if="getUserName !== null">
+          <span>Write your review </span>
+          <router-link :to="{ name: 'gamereview', params: { slug: slug } }">
+            <img src="../../assets/penIcon.png" class="pen-icon" />
+          </router-link>
+        </div>
       </b-col>
     </b-row>
     <br />
@@ -147,6 +149,8 @@
 </template>
 
 <script>
+import { mapActions, mapGetters, mapState } from "vuex";
+
 export default {
   props: ["title", "metacritic", "platforms", "developers", "slug"],
   data() {
@@ -154,6 +158,12 @@ export default {
       animate: true,
     };
   },
+  computed: {
+    ...mapState("account", ["status"]),
+    ...mapGetters({
+      getUserName: "account/getUserName",
+    })
+  }
 };
 </script>
 
