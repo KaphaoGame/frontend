@@ -99,7 +99,7 @@ export default {
     ...mapActions("newGameCard", ["newGameCardSlugAction"]),
     clickGame() {
       this.topGameCardSlugAction(this.slug);
-      this.newGameCardSluhAction(null);
+      this.newGameCardSlugAction(null);
     },
   },
 };

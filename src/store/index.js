@@ -6,6 +6,7 @@ import { account } from './accountModule';
 import { gameDetail } from './gameDetailModule'
 import { topGameCard } from './topGameCardModule'
 import { newGameCard } from './newGameCardModule'
+import { reviewService } from './reviewServiceModule'
 
 Vue.use(Vuex)
 
@@ -17,6 +18,7 @@ export const store = new Vuex.Store({
       account,
       gameDetail,
       topGameCard,
-      newGameCard
+      newGameCard,
+      reviewService
   }
 }); 
