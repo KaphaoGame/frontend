@@ -15,9 +15,6 @@
         </b-col>
         <b-col md="6">
           <b-card-body :title="title">
-            <b-card-text>
-              {{ gameDescription }}
-            </b-card-text>
           </b-card-body>
         </b-col>
       </b-row>
@@ -29,7 +26,7 @@
 import { mapActions, mapGetters, mapState } from "vuex";
 
 export default {
-  props: ["title", "gameImageURL", "gameDescription", "slug"],
+  props: ["title", "gameImageURL", "slug"],
 
   computed: {
     ...mapGetters({
@@ -51,7 +48,7 @@ export default {
     },
   },
   created() {
-    this.newGameCardDataAction();
+    // this.newGameCardDataAction();
   },
 };
 </script>
