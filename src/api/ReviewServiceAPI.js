@@ -15,6 +15,11 @@ class ReviewServiceAPI extends HttpRequest {
         return response
     }
 
+    async editReview(formdata) {
+        const response = await this.update('/api/review', formdata)
+        return response
+    }
+
 }
 
 export default ReviewServiceAPI
