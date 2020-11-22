@@ -137,10 +137,105 @@
         </b-col>
         <br /><br />
         <div v-if="getUserName !== null">
-          <span>Write your review </span>
-          <router-link :to="{ name: 'gamereview', params: { slug: slug } }">
-            <img src="../../assets/penIcon.png" class="pen-icon" />
-          </router-link>
+          <div v-if="commented === false">
+            <span>Write your review </span>
+            <router-link :to="{ name: 'gamereview', params: { slug: slug } }">
+              <img src="../../assets/penIcon.png" class="pen-icon" />
+            </router-link>
+          </div>
+          <div v-else>
+            <b-button 
+            variant="warning"
+            id="edit-com-btn"
+            contain
+            v-b-modal.modal-edit
+            >
+              Edit Your Review
+            </b-button>
+            <b-modal
+            id="modal-edit"
+            title="Edit Your Review"
+            @cancel="onCancel"
+            @ok="onEditConfirm"
+            >
+              Story Score
+              <br />
+              <b-input-group>
+                <b-input-group-prepend>
+                  <b-button @click="commentInfoTmp.story = null">Clear</b-button>
+                </b-input-group-prepend>
+                <b-form-rating v-model="commentInfoTmp.story" color="#ff8800" stars="10"></b-form-rating>
+                <b-input-group-append>
+                  <b-input-group-text class="justify-content-center" style="min-width: 3em;">
+                    {{ commentInfoTmp.story }}
+                  </b-input-group-text>
+                </b-input-group-append>
+              </b-input-group>
+              <br />
+              Gameplay Score
+              <br />
+              <b-input-group>
+                <b-input-group-prepend>
+                  <b-button @click="commentInfoTmp.gameplay = null">Clear</b-button>
+                </b-input-group-prepend>
+                <b-form-rating v-model="commentInfoTmp.gameplay" color="#ff8800" stars="10"></b-form-rating>
+                <b-input-group-append>
+                  <b-input-group-text class="justify-content-center" style="min-width: 3em;">
+                    {{ commentInfoTmp.gameplay }}
+                  </b-input-group-text>
+                </b-input-group-append>
+              </b-input-group>
+              <br />
+              Graphic Score
+              <br />
+              <b-input-group>
+                <b-input-group-prepend>
+                  <b-button @click="commentInfoTmp.graphic = null">Clear</b-button>
+                </b-input-group-prepend>
+                <b-form-rating v-model="commentInfoTmp.graphic" color="#ff8800" stars="10"></b-form-rating>
+                <b-input-group-append>
+                  <b-input-group-text class="justify-content-center" style="min-width: 3em;">
+                    {{ commentInfoTmp.graphic }}
+                  </b-input-group-text>
+                </b-input-group-append>
+              </b-input-group>
+              <br />
+              Performance Score
+              <br />
+              <b-input-group>
+                <b-input-group-prepend>
+                  <b-button @click="commentInfoTmp.performance = null">Clear</b-button>
+                </b-input-group-prepend>
+                <b-form-rating v-model="commentInfoTmp.performance" color="#ff8800" stars="10"></b-form-rating>
+                <b-input-group-append>
+                  <b-input-group-text class="justify-content-center" style="min-width: 3em;">
+                    {{ commentInfoTmp.performance }}
+                  </b-input-group-text>
+                </b-input-group-append>
+              </b-input-group>
+              <br />
+              Sound Score
+              <br />
+              <b-input-group>
+                <b-input-group-prepend>
+                  <b-button @click="commentInfoTmp.sound = null">Clear</b-button>
+                </b-input-group-prepend>
+                <b-form-rating v-model="commentInfoTmp.sound" color="#ff8800" stars="10"></b-form-rating>
+                <b-input-group-append>
+                  <b-input-group-text class="justify-content-center" style="min-width: 3em;">
+                    {{ commentInfoTmp.sound }}
+                  </b-input-group-text>
+                </b-input-group-append>
+              </b-input-group>
+              <br />
+              <div>
+                Comment
+                <br/>
+                <textarea type="text" v-model="commentInfoTmp.comments" class="validate" id="comment-box" placeholder="commentInfoTmp.comments"></textarea>
+              </div>
+              <br />
+            </b-modal>
+          </div>
         </div>
       </b-col>
     </b-row>
@@ -150,19 +245,76 @@
 
 <script>
 import { mapGetters, mapState } from "vuex";
+import ReviewServiceAPI from "@/api/ReviewServiceAPI";
+
+const reviewService = new ReviewServiceAPI();
 
 export default {
-  props: ["title", "metacritic", "platforms", "developers", "slug"],
+  props: ["title", "metacritic", "platforms", "developers", "slug", "getCommentData"],
   data() {
     return {
       animate: true,
-    };
+      commented: false,
+      commentInfo: [],
+      commentInfoTmp: [],
+    }
   },
   computed: {
     ...mapState("account", ["status"]),
     ...mapGetters({
       getUserName: "account/getUserName",
     })
+  },
+  created() {
+    this.getCommentData.forEach(comment => {
+      if(comment.username === this.getUserName) {
+        this.commented = true;
+        this.commentInfo = comment;
+      }
+    });
+    this.commentInfoTmp = {
+      comments: this.commentInfo.comments,
+      gameName: this.commentInfo.gameName,
+      gameTag: this.commentInfo.gameTag,
+      gameplay: this.commentInfo.gameplay,
+      graphic: this.commentInfo.graphic,
+      performance: this.commentInfo.performance,
+      sound: this.commentInfo.sound,
+      story: this.commentInfo.story,
+      username: this.commentInfo.username
+    };
+    // console.log(this.commentInfo);
+    // console.log(this.commentInfoTmp);
+  },
+  methods: {
+    onCancel() {
+      this.commentInfoTmp = {
+        comments: this.commentInfo.comments,
+        gameName: this.commentInfo.gameName,
+        gameTag: this.commentInfo.gameTag,
+        gameplay: this.commentInfo.gameplay,
+        graphic: this.commentInfo.graphic,
+        performance: this.commentInfo.performance,
+        sound: this.commentInfo.sound,
+        story: this.commentInfo.story,
+        username: this.commentInfo.username
+      };
+    },
+    onEditConfirm() {
+      const formdata = new FormData()
+      formdata.append("gameTag", this.commentInfoTmp.gameTag)
+      formdata.append("gameName", this.commentInfoTmp.gameName)
+      formdata.append("username", this.commentInfoTmp.username)
+      formdata.append("story", this.commentInfoTmp.story)
+      formdata.append("gameplay", this.commentInfoTmp.gameplay)
+      formdata.append("sound", this.commentInfoTmp.sound)
+      formdata.append("graphic", this.commentInfoTmp.graphic)
+      formdata.append("performance", this.commentInfoTmp.performance)
+      formdata.append("comments", this.commentInfoTmp.comments)
+
+      const check = reviewService.editReview(formdata)
+      console.log(check)
+    }
   }
 };
 </script>
@@ -184,5 +336,8 @@ export default {
 .pen-icon {
   width: 2vw;
   height: 2vw;
+}
+#comment-box {
+  width: 34vw;
 }
 </style>
