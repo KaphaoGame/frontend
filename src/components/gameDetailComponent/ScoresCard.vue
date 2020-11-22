@@ -250,7 +250,7 @@ import ReviewServiceAPI from "@/api/ReviewServiceAPI";
 const reviewService = new ReviewServiceAPI();
 
 export default {
-  props: ["title", "metacritic", "platforms", "developers", "slug", "getCommentData"],
+  props: ["title", "metacritic", "platforms", "developers", "slug"],
   data() {
     return {
       animate: true,
@@ -261,9 +261,11 @@ export default {
   },
   computed: {
     ...mapState("account", ["status"]),
+    ...mapState("reviewService", ["commentData"]),
     ...mapGetters({
       getUserName: "account/getUserName",
-    })
+      getCommentData: "reviewService/getCommentData",
+    }),
   },
   created() {
     this.getCommentData.forEach(comment => {
@@ -311,10 +313,10 @@ export default {
       formdata.append("graphic", this.commentInfoTmp.graphic)
       formdata.append("performance", this.commentInfoTmp.performance)
       formdata.append("comments", this.commentInfoTmp.comments)
-
-      const check = reviewService.editReview(formdata)
-      console.log(check)
-    }
+      
+      reviewService.createReview(formdata)
+      window.location.reload()
+    },
   }
 };
 </script>

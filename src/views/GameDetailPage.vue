@@ -12,7 +12,6 @@
           :platforms="getDataPlatforms"
           :developers="getDataGameDevelopers"
           :slug="getSlugData"
-          :getCommentData="getCommentData"
       /></b-col>
     </b-row>
 
