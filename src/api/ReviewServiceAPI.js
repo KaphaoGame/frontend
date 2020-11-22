@@ -15,6 +15,10 @@ class ReviewServiceAPI extends HttpRequest {
         return response
     }
 
+    async deleteReview(gameTagAndUsername) {
+        const response = await this.create('/api/review/' + gameTagAndUsername, gameTagAndUsername)
+        return response
+    }
 }
 
 export default ReviewServiceAPI

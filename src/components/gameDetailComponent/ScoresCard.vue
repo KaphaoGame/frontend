@@ -144,97 +144,104 @@
             </router-link>
           </div>
           <div v-else>
-            <b-button 
-            variant="warning"
-            id="edit-com-btn"
-            contain
-            v-b-modal.modal-edit
-            >
-              Edit Your Review
-            </b-button>
-            <b-modal
-            id="modal-edit"
-            title="Edit Your Review"
-            @cancel="onCancel"
-            @ok="onEditConfirm"
-            >
-              Story Score
-              <br />
-              <b-input-group>
-                <b-input-group-prepend>
-                  <b-button @click="commentInfoTmp.story = null">Clear</b-button>
-                </b-input-group-prepend>
-                <b-form-rating v-model="commentInfoTmp.story" color="#ff8800" stars="10"></b-form-rating>
-                <b-input-group-append>
-                  <b-input-group-text class="justify-content-center" style="min-width: 3em;">
-                    {{ commentInfoTmp.story }}
-                  </b-input-group-text>
-                </b-input-group-append>
-              </b-input-group>
-              <br />
-              Gameplay Score
-              <br />
-              <b-input-group>
-                <b-input-group-prepend>
-                  <b-button @click="commentInfoTmp.gameplay = null">Clear</b-button>
-                </b-input-group-prepend>
-                <b-form-rating v-model="commentInfoTmp.gameplay" color="#ff8800" stars="10"></b-form-rating>
-                <b-input-group-append>
-                  <b-input-group-text class="justify-content-center" style="min-width: 3em;">
-                    {{ commentInfoTmp.gameplay }}
-                  </b-input-group-text>
-                </b-input-group-append>
-              </b-input-group>
-              <br />
-              Graphic Score
-              <br />
-              <b-input-group>
-                <b-input-group-prepend>
-                  <b-button @click="commentInfoTmp.graphic = null">Clear</b-button>
-                </b-input-group-prepend>
-                <b-form-rating v-model="commentInfoTmp.graphic" color="#ff8800" stars="10"></b-form-rating>
-                <b-input-group-append>
-                  <b-input-group-text class="justify-content-center" style="min-width: 3em;">
-                    {{ commentInfoTmp.graphic }}
-                  </b-input-group-text>
-                </b-input-group-append>
-              </b-input-group>
-              <br />
-              Performance Score
-              <br />
-              <b-input-group>
-                <b-input-group-prepend>
-                  <b-button @click="commentInfoTmp.performance = null">Clear</b-button>
-                </b-input-group-prepend>
-                <b-form-rating v-model="commentInfoTmp.performance" color="#ff8800" stars="10"></b-form-rating>
-                <b-input-group-append>
-                  <b-input-group-text class="justify-content-center" style="min-width: 3em;">
-                    {{ commentInfoTmp.performance }}
-                  </b-input-group-text>
-                </b-input-group-append>
-              </b-input-group>
-              <br />
-              Sound Score
-              <br />
-              <b-input-group>
-                <b-input-group-prepend>
-                  <b-button @click="commentInfoTmp.sound = null">Clear</b-button>
-                </b-input-group-prepend>
-                <b-form-rating v-model="commentInfoTmp.sound" color="#ff8800" stars="10"></b-form-rating>
-                <b-input-group-append>
-                  <b-input-group-text class="justify-content-center" style="min-width: 3em;">
-                    {{ commentInfoTmp.sound }}
-                  </b-input-group-text>
-                </b-input-group-append>
-              </b-input-group>
-              <br />
-              <div>
-                Comment
-                <br/>
-                <textarea type="text" v-model="commentInfoTmp.comments" class="validate" id="comment-box" placeholder="commentInfoTmp.comments"></textarea>
-              </div>
-              <br />
-            </b-modal>
+            <div v-if="deleteSta === false">
+              <b-button 
+              variant="warning"
+              id="edit-com-btn"
+              contain
+              v-b-modal.modal-edit
+              >
+                Edit Your Review
+              </b-button>
+              <b-modal
+              id="modal-edit"
+              title="Edit Your Review"
+              @cancel="onCancel"
+              @ok="onEditConfirm"
+              >
+                Story Score
+                <br />
+                <b-input-group>
+                  <b-input-group-prepend>
+                    <b-button @click="commentInfoTmp.story = null">Clear</b-button>
+                  </b-input-group-prepend>
+                  <b-form-rating v-model="commentInfoTmp.story" color="#ff8800" stars="10"></b-form-rating>
+                  <b-input-group-append>
+                    <b-input-group-text class="justify-content-center" style="min-width: 3em;">
+                      {{ commentInfoTmp.story }}
+                    </b-input-group-text>
+                  </b-input-group-append>
+                </b-input-group>
+                <br />
+                Gameplay Score
+                <br />
+                <b-input-group>
+                  <b-input-group-prepend>
+                    <b-button @click="commentInfoTmp.gameplay = null">Clear</b-button>
+                  </b-input-group-prepend>
+                  <b-form-rating v-model="commentInfoTmp.gameplay" color="#ff8800" stars="10"></b-form-rating>
+                  <b-input-group-append>
+                    <b-input-group-text class="justify-content-center" style="min-width: 3em;">
+                      {{ commentInfoTmp.gameplay }}
+                    </b-input-group-text>
+                  </b-input-group-append>
+                </b-input-group>
+                <br />
+                Graphic Score
+                <br />
+                <b-input-group>
+                  <b-input-group-prepend>
+                    <b-button @click="commentInfoTmp.graphic = null">Clear</b-button>
+                  </b-input-group-prepend>
+                  <b-form-rating v-model="commentInfoTmp.graphic" color="#ff8800" stars="10"></b-form-rating>
+                  <b-input-group-append>
+                    <b-input-group-text class="justify-content-center" style="min-width: 3em;">
+                      {{ commentInfoTmp.graphic }}
+                    </b-input-group-text>
+                  </b-input-group-append>
+                </b-input-group>
+                <br />
+                Performance Score
+                <br />
+                <b-input-group>
+                  <b-input-group-prepend>
+                    <b-button @click="commentInfoTmp.performance = null">Clear</b-button>
+                  </b-input-group-prepend>
+                  <b-form-rating v-model="commentInfoTmp.performance" color="#ff8800" stars="10"></b-form-rating>
+                  <b-input-group-append>
+                    <b-input-group-text class="justify-content-center" style="min-width: 3em;">
+                      {{ commentInfoTmp.performance }}
+                    </b-input-group-text>
+                  </b-input-group-append>
+                </b-input-group>
+                <br />
+                Sound Score
+                <br />
+                <b-input-group>
+                  <b-input-group-prepend>
+                    <b-button @click="commentInfoTmp.sound = null">Clear</b-button>
+                  </b-input-group-prepend>
+                  <b-form-rating v-model="commentInfoTmp.sound" color="#ff8800" stars="10"></b-form-rating>
+                  <b-input-group-append>
+                    <b-input-group-text class="justify-content-center" style="min-width: 3em;">
+                      {{ commentInfoTmp.sound }}
+                    </b-input-group-text>
+                  </b-input-group-append>
+                </b-input-group>
+                <br />
+                <div>
+                  Comment
+                  <br/>
+                  <textarea type="text" v-model="commentInfoTmp.comments" class="validate" id="comment-box" placeholder="commentInfoTmp.comments"></textarea>
+                </div>
+                <br />
+              </b-modal>
+              <b-button @click="deleteReview">Delete</b-button>
+            </div>
+            <div v-else>
+              <b-button @click="onCancelDel">Cancel</b-button>
+              <b-button @click="onConfirmDel">Confirm</b-button>
+            </div>
           </div>
         </div>
       </b-col>
@@ -257,6 +264,7 @@ export default {
       commented: false,
       commentInfo: [],
       commentInfoTmp: [],
+      deleteSta: false,
     }
   },
   computed: {
@@ -317,6 +325,17 @@ export default {
       reviewService.createReview(formdata)
       window.location.reload()
     },
+    deleteReview() {
+      this.deleteSta = true
+    },
+    onCancelDel() {
+      this.deleteSta = false
+    },
+    onConfirmDel() {
+      var strTmp = this.commentInfo.gameTag + "_" + this.commentInfo.username
+      reviewService.deleteReview(strTmp)
+      window.location.reload()
+    }
   }
 };
 </script>
