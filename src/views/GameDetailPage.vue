@@ -3,7 +3,29 @@
     <br />
     <h1 class="font-style">{{ getDataGameName }}</h1>
     <br />
-      <b-row class="mb-3">
+
+      <!-- edit -->
+
+<b-card :img-src="getDataGameImageURL" img-alt="Card image" img-top>
+        <b-card-text>
+          
+<ScoresCard
+          title="Game Scores card"
+          :metacritic="getDataMetacritic"
+          :platforms="getDataPlatforms"
+          :developers="getDataGameDevelopers"
+          :slug="getSlugData"
+      />
+
+        </b-card-text>
+      </b-card>
+
+      <!-- edit -->
+      
+
+
+
+      <!-- <b-row class="mb-3">
       <b-img :src="getDataGameImageURL" width="300px" height="540px" />
       <b-col
         ><ScoresCard
@@ -13,8 +35,8 @@
           :developers="getDataGameDevelopers"
           :slug="getSlugData"
       /></b-col>
-    </b-row>
-
+    </b-row> -->
+<br />
     <b-row class="col-12">
       <b-col class="col-8">
         <div id="tag-card">

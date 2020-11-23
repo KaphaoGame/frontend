@@ -52,6 +52,7 @@
             :metacritic="item.metacriticScore"
             :slug="item.slug"
           />
+          <br/>
         </b-col>
       </b-row>
     </div>

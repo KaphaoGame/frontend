@@ -1,7 +1,7 @@
 <template v-slot:img>
   <div class="container">
     <div class="row col-12">
-      <span>{{ title }}</span>
+      <!-- <span>{{ title }}</span> -->
       <router-link :to="{ name: 'gamedetail', params: { slug: slug } }">
         <img
           class="d-block img-fluid w-100 bg-image"
