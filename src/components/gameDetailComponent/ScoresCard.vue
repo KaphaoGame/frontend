@@ -5,13 +5,13 @@
         <span id="font-style">User Score</span>
         <div align="center">
           <div id="mock-score2">
-            <span>85</span>
+            <span>{{ this.finalScore }}</span>
           </div>
         </div>
         <b-col class="d-flex flex-column-reverse">
           <div>
             <b-progress
-              :value="100"
+              :value="this.totalScore.story"
               variant="success"
               striped
               :animated="animate"
@@ -19,7 +19,7 @@
             ></b-progress>
             <hr />
             <b-progress
-              :value="25"
+              :value="this.totalScore.gameplay"
               variant="success"
               striped
               :animated="animate"
@@ -27,7 +27,7 @@
             ></b-progress>
             <hr />
             <b-progress
-              :value="50"
+              :value="this.totalScore.graphic"
               variant="info"
               striped
               :animated="animate"
@@ -35,7 +35,7 @@
             ></b-progress>
             <hr />
             <b-progress
-              :value="75"
+              :value="this.totalScore.performance"
               variant="warning"
               striped
               :animated="animate"
@@ -43,7 +43,7 @@
             ></b-progress>
             <hr />
             <b-progress
-              :value="100"
+              :value="this.totalScore.sound"
               variant="danger"
               :animated="animate"
               class="mt-4"
@@ -92,7 +92,7 @@
             <span>{{ metacritic }}</span>
           </div>
         </b-col>
-        <b-col class="d-flex flex-column-reverse">
+        <!-- <b-col class="d-flex flex-column-reverse">
           <div>
             <b-progress
               :value="100"
@@ -134,8 +134,8 @@
             ></b-progress>
             <hr />
           </div>
-        </b-col>
-        <br /><br />
+        </b-col> -->
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
         <div v-if="getUserName !== null">
           <div v-if="commented === false">
             <span>Write your review </span>
@@ -265,6 +265,13 @@ export default {
       commentInfo: [],
       commentInfoTmp: [],
       deleteSta: false,
+      totalScore: [],
+      gameplay: 0,
+      sound: 0,
+      graphic: 0,
+      performance: 0,
+      story: 0,
+      finalScore: 0
     }
   },
   computed: {
@@ -276,23 +283,30 @@ export default {
     }),
   },
   created() {
+    var i = 0;
     this.getCommentData.forEach(comment => {
       if(comment.username === this.getUserName) {
         this.commented = true;
         this.commentInfo = comment;
       }
+      this.story += comment.story;
+      this.gameplay += comment.gameplay;
+      this.graphic += comment.graphic;
+      this.performance += comment.performance;
+      this.sound += comment.sound;
+      i++;
     });
-    this.commentInfoTmp = {
-      comments: this.commentInfo.comments,
-      gameName: this.commentInfo.gameName,
-      gameTag: this.commentInfo.gameTag,
-      gameplay: this.commentInfo.gameplay,
-      graphic: this.commentInfo.graphic,
-      performance: this.commentInfo.performance,
-      sound: this.commentInfo.sound,
-      story: this.commentInfo.story,
-      username: this.commentInfo.username
-    };
+    this.totalScore = {
+      story: (this.story/i)*10,
+      gameplay: (this.gameplay/i)*10,
+      graphic: (this.graphic/i)*10,
+      performance: (this.performance/i)*10,
+      sound: (this.sound/i)*10
+    }
+    this.finalScore = (this.totalScore.story + this.totalScore.gameplay +
+      this.totalScore.graphic + this.totalScore.performance + this.totalScore.sound)/5;
+    console.log(this.totalScore)
+    this.onCancel()
     // console.log(this.commentInfo);
     // console.log(this.commentInfoTmp);
   },
@@ -323,7 +337,7 @@ export default {
       formdata.append("comments", this.commentInfoTmp.comments)
       
       reviewService.createReview(formdata)
-      window.location.reload()
+      // window.location.reload()
     },
     deleteReview() {
       this.deleteSta = true

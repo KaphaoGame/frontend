@@ -21,6 +21,16 @@ class AccountService extends HttpRequest {
         const response = await this.create('api/loginAccount', formdata)
         return response.data
     }
+
+    async editKaphaoGameAccount(formdata) {
+        const response = await this.update("api/editAccount", formdata)
+        return response
+    }
+
+    async deleteKaphaoGameAccount(username) {
+        const response = await this.create("api/" + username, username)
+        return response
+    }
 }
 
 export default AccountService
