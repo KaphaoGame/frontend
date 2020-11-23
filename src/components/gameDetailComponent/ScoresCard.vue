@@ -5,7 +5,7 @@
         <span id="font-style">User Score</span>
         <div align="center">
           <div id="mock-score2">
-            <span>{{ this.finalScore }}</span>
+            <span>{{ this.finalScore.toFixed(0) }}</span> 
           </div>
         </div>
         <b-col class="d-flex flex-column-reverse">
@@ -67,7 +67,7 @@
       </b-col>
 
       <b-col class="text-align-center">
-        <br /><br /><br /><br /><br /><br />
+        <br /><br /><br /><br /><br /><br /><br /><br />
         <span>Story</span>
         <br />
         <hr />
@@ -84,6 +84,8 @@
         <br />
         <hr />
       </b-col>
+
+      
 
       <b-col class="text-align-center">
         <span id="font-style">Official Score</span>
@@ -232,7 +234,10 @@
                 <div>
                   Comment
                   <br/>
-                  <textarea type="text" v-model="commentInfoTmp.comments" class="validate" id="comment-box" placeholder="commentInfoTmp.comments"></textarea>
+                  <div class="container">
+                    <textarea type="text" v-model="commentInfoTmp.comments" class="validate" id="comment-box" placeholder="commentInfoTmp.comments"></textarea>
+                  </div>
+                  
                 </div>
                 <br />
               </b-modal>
@@ -247,6 +252,7 @@
       </b-col>
     </b-row>
     <br />
+
   </b-container>
 </template>
 
@@ -373,6 +379,6 @@ export default {
   height: 2vw;
 }
 #comment-box {
-  width: 34vw;
+  width: 100%;
 }
 </style>

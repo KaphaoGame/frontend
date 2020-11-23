@@ -33,7 +33,7 @@
       </div>
       
       <div v-if="deleteStatus === false">
-        <!-- <b-button @click="editPro" variant="warning">Edit Profile</b-button> -->
+        <b-button @click="editPro" variant="warning">Edit Profile</b-button>
         <b-button @click="deletePro" variant="danger"> Delete Profile </b-button>
       </div>
       <div v-else>

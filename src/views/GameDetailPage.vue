@@ -37,10 +37,10 @@
 
         <div id="user-reviews-card">
           <h3>User Reviews</h3>
-          <div v-for="(comment, index) in getCommentData" :key=index>
+          <div v-for="(comment, index) in getCommentData" :key=index> 
             <UserReviewsCard 
               :username = comment.username
-              score="90"
+              :score= ((comment.sound+comment.gameplay+comment.performance+comment.graphic+comment.story)/5)*10
               :soundVal = comment.sound
               :gameplayVal = comment.gameplay
               :performanceVal = comment.performance
@@ -130,7 +130,6 @@ export default {
     }
     this.topGameCardDataAction();
     this.newGameCardDataAction();
-
   },
 };
 
