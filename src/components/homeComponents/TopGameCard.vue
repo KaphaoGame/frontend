@@ -1,5 +1,27 @@
 <template>
-  <b-col align-self="between">
+  <div>
+    <!-- edit -->
+    <router-link :to="{ name: 'gamedetail', params: { slug: slug } }">
+      <b-card
+        overlay
+        :img-src="gameImageURL"
+        text-variant="white"
+        @click="clickGame"
+      >
+        <b-card-title class="game-title">
+          <div>
+            {{ title }}
+          </div>
+        </b-card-title>
+        
+        <div class="mock-score">
+          {{ metacritic }}
+        </div>
+      </b-card>
+    </router-link>
+    <!-- edit -->
+
+    <!-- <b-col align-self="between">
     <b-row id="background-card">
       <b-col cols="10">
         <div>
@@ -15,69 +37,17 @@
         </div>
       </b-col>
 
-      <b-col class="d-flex flex-column-reverse">
-        <b-row class="mb-3 d-flex flex-row">
-          <span class="font-style-topgamecard">Story</span>
-        </b-row>
-        <b-row class="mb-3 d-flex flex-row">
-          <span class="font-style-topgamecard">Gameplay</span>
-        </b-row>
-        <b-row class="mb-3 d-flex flex-row">
-          <span class="font-style-topgamecard">Graphics</span>
-        </b-row>
-        <b-row class="mb-3 d-flex flex-row">
-          <span class="font-style-topgamecard">Performance</span>
-        </b-row>
-        <b-row class="mb-3 d-flex flex-row">
-          <span class="font-style-topgamecard">Sound</span>
-        </b-row>
-      </b-col>
 
       <b-col class="d-flex flex-column-reverse">
-        <div class="padding-progress">
-          <b-progress
-            :value="100"
-            variant="success"
-            striped
-            :animated="animate"
-            class="mt-4"
-          ></b-progress>
-          <b-progress
-            :value="100"
-            variant="success"
-            :animated="animate"
-            class="mt-4"
-          ></b-progress>
-          <b-progress
-            :value="70"
-            variant="success"
-            striped
-            :animated="animate"
-            class="mt-4"
-          ></b-progress>
-          <b-progress
-            :value="50"
-            variant="warning"
-            striped
-            :animated="animate"
-            class="mt-4"
-          ></b-progress>
-          <b-progress
-            :value="30"
-            variant="danger"
-            striped
-            :animated="animate"
-            class="mt-4"
-          ></b-progress>
-        </div>
-        <b-col align-self="start">
+              <b-col align-self="start">
           <div class="mock-score">
             <span>{{ metacritic }}</span>
           </div>
         </b-col>
       </b-col>
     </b-row>
-  </b-col>
+  </b-col> -->
+  </div>
 </template>
 
 <script>
@@ -106,26 +76,34 @@ export default {
 </script>
 
 <style>
-.font-style-title {
+/* .font-style-title {
   font-size: 1.2vw;
   color: #ffffff;
 }
 #background-card {
   background: #212529;
   border-radius: 7px;
-}
+} */
+
 .mock-score {
-  font-size: 5vw;
-  color: #e9ecef;
+  font-size: 2vw;
+  color: #ffffff;
   background: #18850c;
   border-radius: 7px;
   text-align: center;
+  width: 15%;
 }
-.padding-progress {
+
+/* .padding-progress {
   padding: 20px;
-}
-.font-style-topgamecard {
+} */
+
+/* .font-style-topgamecard {
   color: #ffffff;
+} */
+
+.game-title {
+  background-color: #212529;
 }
-</style>>
+</style>
 

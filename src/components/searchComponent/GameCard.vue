@@ -1,24 +1,35 @@
 <template>
   <div>
-    <b-card no-body class="overflow-hidden">
-      <b-row no-gutters cols="2">
-        <b-col md="6">
-          <router-link :to="{ name: 'gamedetail', params: { slug: slug } }">
-            <img
-              :src="gameImageURL"
-              alt="Image"
-              class="rounded-0 game-img"
-              contain
-              @click="clickGame"
-            />
-          </router-link>
-        </b-col>
-        <b-col md="6">
-          <b-card-body :title="title">
-          </b-card-body>
-        </b-col>
-      </b-row>
-    </b-card>
+    <!-- <b-card no-body class="overflow-hidden">
+      <router-link :to="{ name: 'gamedetail', params: { slug: slug } }">
+        <img
+          :src="gameImageURL"
+          alt="Image"
+          class="rounded-0 game-img"
+          contain
+          @click="clickGame"
+        />
+      </router-link>
+
+     
+      <b-card-body :title="title"> </b-card-body>
+    </b-card> -->
+
+    <div>
+      <router-link :to="{ name: 'gamedetail', params: { slug: slug } }">
+        <b-card
+          overlay
+          :img-src="gameImageURL"
+          :img-alt="Image"
+          text-variant="white"
+          @click="clickGame"
+        >
+          <b-card-title class="game-title ">
+            {{ title }}
+          </b-card-title>
+        </b-card>
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -56,6 +67,12 @@ export default {
 
 <style>
 .game-img {
-  width: 40vw;
+  width: 100%;
+}
+.blackbar {
+  background-color: black;
+}
+.game-title {
+  background-color: #212529;
 }
 </style>
