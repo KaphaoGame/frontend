@@ -10,9 +10,8 @@
 - 6110406279 นายอิศม์เดช พงศภัคไพบูลย์ (Member) https://github.com/6110406279
 - 6110406201 นายวัชริศ สายพิมพ์ (Member) https://github.com/mahou2399
 - 6110406139 นายพิชญ์ทัช ศิริพรโภคา (Member) https://github.com/pichathat-6110406139
-- 6110406121 นายพันธุ์ธิชชัย   ขรรค์บริวาร (SE Project Collaborator) https://github.com/comment4C
-- 6110400106 นายณัฐวรรธน์  สุนทรเสถียรกุล (SE Project Collaborator) https://github.com/6110400106
-##### หมายเหตุ SE Project Collaborator ไม่ได้เป็นสมาชิกกลุ่มในวิชา Web Tech 
+- 6110406121 นายพันธุ์ธิชชัย   ขรรค์บริวาร (Member) https://github.com/comment4C
+- 6110400106 นายณัฐวรรธน์  สุนทรเสถียรกุล (Member) https://github.com/6110400106
 
 ## ฟังก์ชันการทำงานของระบบ
 - เว็บรวมคะแนนรีวิวของเกมแต่ละเกม
